@@ -1,1 +1,8 @@
+<ul>
+   <% @books.each do |book| %>
+      <li><%= link_to book.name, book %></li>
+   <% end %>
+</ul>
 <%= link_to "Add new book", new_book_path %>
+
+
