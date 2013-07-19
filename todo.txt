@@ -1,0 +1,19 @@
++Books page should let you create a book
++Books page should list all books
++Clicking on a book should take you to the show page
+
++Bootstrap
+-Github
+-Heroku
+
+-Show page should have a read button
+-Read button should take you to read page
+-Reading should update current page
+
+-Show page should have an edit button
+-Edit button should take you to edit page
+-Should be able to change title, pages, current page on edit page
+
+-Home page should show most recently read book
+-Home page should have a textbox for reading
+-Reading from home page should update current page on home page
