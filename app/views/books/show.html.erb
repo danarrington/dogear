@@ -3,3 +3,4 @@
    Total Pages: <%= @book.pages %><br /> 
    Current Page: <%= @book.current_page %>
 </p>
+<%= link_to "Read", read_book_path(@book) %>

@@ -11,7 +11,7 @@ class BooksController < ApplicationController
       @book = Book.new(params[:book])
 
       if @book.save
-         flash[:notice] = "Book has been added"
+         flash[:notice] = 'Book has been added'
          redirect_to @book
       else
 
@@ -21,4 +21,15 @@ class BooksController < ApplicationController
    def show
       @book = Book.find(params[:id])
    end
+
+   def read
+      @book = Book.find(params[:id])
+   end
+
+   def update
+      @book = Book.find(params[:id])
+      @book.update_attributes(params[:book])
+      redirect_to @book
+   end
+
 end

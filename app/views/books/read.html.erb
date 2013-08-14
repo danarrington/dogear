@@ -1,0 +1,12 @@
+<h3><%= @book.name %> </h3>
+<p>
+   Current Page: <%= @book.current_page %>
+</p>
+<%= form_for(@book) do |book| %>
+   <p>
+      <%= book.label :current_page %>
+      <%= book.text_field :current_page %>
+   </p>
+   <%= book.submit %>
+
+<% end %>

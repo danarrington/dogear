@@ -57,4 +57,6 @@ Dogear::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
   root :to => 'books#index'
   resources :books
+
+  match 'books/:id/read' => 'books#read', :as => :read_book
 end
