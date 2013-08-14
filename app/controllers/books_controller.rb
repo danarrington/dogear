@@ -1,5 +1,10 @@
 class BooksController < ApplicationController
    def index
+      @recently_read_book = Book.last
+      redirect_to @recently_read_book
+   end
+
+   def list
       @books = Book.all
    end
 

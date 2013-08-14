@@ -47,8 +47,8 @@ Dogear::Application.routes.draw do
   #   end
 
   # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  # just remember to delete public/list.html.
+  # root :to => 'welcome#list'
 
   # See how all your routes lay out with "rake routes"
 
@@ -56,7 +56,9 @@ Dogear::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
   root :to => 'books#index'
+  match 'books/list' => 'books#list', :as => :list_book
   resources :books
+
 
   match 'books/:id/read' => 'books#read', :as => :read_book
 end
