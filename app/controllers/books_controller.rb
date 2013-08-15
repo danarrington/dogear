@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
    def index
-      @recently_read_book = Book.last
+      @recently_read_book = Book.order('updated_at').last
       redirect_to @recently_read_book
    end
 
