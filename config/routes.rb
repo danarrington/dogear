@@ -56,9 +56,9 @@ Dogear::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
   root :to => 'books#index'
-  match 'books/list' => 'books#list', :as => :list_book
+  get 'books/list' => 'books#list', :as => :list_book
   resources :books
 
 
-  match 'books/:id/read' => 'books#read', :as => :read_book
+  get 'books/:id/read' => 'books#read', :as => :read_book
 end
