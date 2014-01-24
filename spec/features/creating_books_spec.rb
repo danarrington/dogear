@@ -7,7 +7,7 @@ feature "Creating Books" do
 
       click_link("Add new book")
 
-      fill_in "Name", with: "Redshirts"
+      fill_in "Title", with: "Redshirts"
       fill_in "Pages", with: 268
       click_button("Create")
 

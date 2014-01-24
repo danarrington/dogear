@@ -1,7 +1,11 @@
 class BooksController < ApplicationController
    def index
       @recently_read_book = Book.order('updated_at').last
-      redirect_to @recently_read_book
+      if @recently_read_book
+        redirect_to @recently_read_book
+      else
+        redirect_to list_book_path
+      end
    end
 
    def list
@@ -13,7 +17,7 @@ class BooksController < ApplicationController
    end
 
    def create
-      @book = Book.new(params[:book])
+      @book = Book.new(book_params)
 
       if @book.save
          flash[:notice] = 'Book has been added'
@@ -33,8 +37,13 @@ class BooksController < ApplicationController
 
    def update
       @book = Book.find(params[:id])
-      @book.update_attributes(params[:book])
+      @book.update_attributes(book_params)
       redirect_to @book
    end
+
+  private
+    def book_params
+      params.require(:book).permit(:title, :pages, :current_page)
+    end
 
 end

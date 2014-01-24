@@ -1,14 +1,20 @@
-+Books page should let you create a book
-+Books page should list all books
-+Clicking on a book should take you to the show page
+xBooks page should let you create a book
+xBooks page should list all books
+xClicking on a book should take you to the show page
 
-+Bootstrap
-+Github
-+Heroku
+xBootstrap
+xGithub
+xHeroku
 
-+Show page should have a read button
-+Read button should take you to read page
-+Reading should update current page
+xShow page should have a read button
+xRead button should take you to read page
+xReading should update current page
+
+xrename 'name' to title
+
+Validation
+-Require Title
+-Require pages
 
 -Show page should have an edit button
 -Edit button should take you to edit page
@@ -17,3 +23,6 @@
 -Home page should show most recently read book
 -Home page should have a textbox for reading
 -Reading from home page should update current page on home page
+
+Authentication
+-Set up devise

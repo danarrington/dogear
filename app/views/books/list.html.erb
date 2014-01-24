@@ -1,6 +1,6 @@
 <ul>
    <% @books.each do |book| %>
-      <li><%= link_to book.name, book %></li>
+      <li><%= link_to book.title, book %></li>
    <% end %>
 </ul>
 <%= link_to "Add new book", new_book_path %>

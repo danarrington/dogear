@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Listing Books' do
    scenario 'List all books' do
 
-      FactoryGirl.create(:book, name: 'Redshirts')
+      FactoryGirl.create(:book, title: 'Redshirts')
 
       visit '/books/list'
 
@@ -11,7 +11,7 @@ feature 'Listing Books' do
    end
 
    scenario 'View a book' do
-      FactoryGirl.create(:book, name: 'Redshirts',
+      FactoryGirl.create(:book, title: 'Redshirts',
                                 pages: 314, current_page: 23)
       
       visit '/books/list'
@@ -24,8 +24,8 @@ feature 'Listing Books' do
    end
 
    scenario 'Visit Root Page' do
-      FactoryGirl.create(:book, name: 'Redshirts', pages: 314, current_page: 23, updated_at: Date.today)
-      FactoryGirl.create(:book, name: 'Old Mans War', pages: 310, current_page: 0, updated_at: Date.yesterday)
+      FactoryGirl.create(:book, title: 'Redshirts', pages: 314, current_page: 23, updated_at: Date.today)
+      FactoryGirl.create(:book, title: 'Old Mans War', pages: 310, current_page: 0, updated_at: Date.yesterday)
 
       visit '/'
 

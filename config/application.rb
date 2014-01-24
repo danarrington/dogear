@@ -58,5 +58,21 @@ module Dogear
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.generators do |g|
+      g.test_framework :rspec,
+                       fixtures: true,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       controller_specs: true,
+                       request_specs: false
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+
+    end
+
+    config.i18n.enforce_available_locales = true;
+    config.secret_key_base = 'e0a8adefe1e30d870618f76780ccc3e88ce79a980ac448eb335230d4a0562eb50d27511ee463519f5a86f49163d26b4039fbe6098cbafe3975c49e564180eabf'
+
   end
 end

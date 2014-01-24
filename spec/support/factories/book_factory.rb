@@ -1,6 +1,6 @@
 FactoryGirl.define do
    factory :book do
-      name "Example Book"
+      title "Example Book"
       pages 300
       current_page 0
    end

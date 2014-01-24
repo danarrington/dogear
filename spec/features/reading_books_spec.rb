@@ -2,9 +2,9 @@ require 'spec_helper'
 
 feature 'Reading Books' do
    scenario "Read a Book" do
-      FactoryGirl.create(:book, name: "Redshirts", current_page: 2)
+      FactoryGirl.create(:book, title: "Redshirts", current_page: 2)
 
-      visit "/books"
+      visit "/books/list"
       click_link "Redshirts"
 
       click_link "Read"
