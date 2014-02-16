@@ -24,6 +24,7 @@ Stats
 - Display stats below read
 - Started, pace, finish date
 - Show bookmarks table
+- On update, redirect to stats with anchor
 
 All Stats
 - Have a page with all stats

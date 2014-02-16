@@ -3,6 +3,7 @@ FactoryGirl.define do
       title "Example Book"
       pages 300
       current_page 0
+      started_at Date.yesterday
 
      factory :invalid_book do
        current_page 'letters'

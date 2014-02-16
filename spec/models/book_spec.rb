@@ -15,7 +15,9 @@ describe Book do
 
   context 'with several bookmarks' do
     it 'calculates the pace correctly' do
+      book = create(:book, started_at: 7.days.ago.to_date, current_page: 140)
 
+      expect(book.pace).to eq 20
     end
   end
 
