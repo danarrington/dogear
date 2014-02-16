@@ -3,6 +3,10 @@ FactoryGirl.define do
       title "Example Book"
       pages 300
       current_page 0
+
+     factory :invalid_book do
+       current_page 'letters'
+     end
    end
 
   factory :bookmark do

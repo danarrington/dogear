@@ -13,5 +13,11 @@ describe Book do
     expect(build(:book, pages: nil, title: 'book title')).to have(1).errors_on(:pages)
   end
 
+  context 'with several bookmarks' do
+    it 'calculates the pace correctly' do
+
+    end
+  end
+
 
 end

@@ -18,7 +18,8 @@ class BooksController < ApplicationController
 
    def create
       @book = Book.new(book_params)
-
+      @book.started_at = Date.today
+      
       if @book.save
          flash[:notice] = 'Book has been added'
          redirect_to @book
@@ -38,6 +39,7 @@ class BooksController < ApplicationController
    def update
       @book = Book.find(params[:id])
       @book.update_attributes(book_params)
+      @book.bookmarks.create(page: @book.current_page )
       redirect_to @book
    end
 

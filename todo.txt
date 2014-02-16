@@ -17,8 +17,20 @@ xRequire Title
 xRequire pages
 
 Bookmarks
-- Add Dogear class as reference
-- Gets created on read
+x Add Dogear class as reference
+x Gets created on read
+
+Stats
+- Display stats below read
+- Started, pace, finish date
+- Show bookmarks table
+
+All Stats
+- Have a page with all stats
+- Books read, pages read, pages read/week, best week etc.
+
+
+Add support for kindle books
 
 ----old line----
 -Show page should have an edit button
