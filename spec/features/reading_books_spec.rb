@@ -7,13 +7,11 @@ feature 'Reading Books' do
       visit "/books/list"
       click_link "Redshirts"
 
-      click_link "Read"
-
       expect(page).to have_content("2")
 
       fill_in "book_current_page", with: "25"
 
-      click_button "Update Book"
+      click_button "Submit"
 
       expect(page).to have_content("25")
    end

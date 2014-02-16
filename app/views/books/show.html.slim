@@ -1,11 +1,3 @@
-/<h2><%= @book.title %></h2>
-/<p>
-/   Total Pages: <%= @book.pages %><br />
-/   Current Page: <%= @book.current_page %>
-/</p>
-/<%= link_to "Read", read_book_path(@book) %> <br /><br /><br />
-/<%= link_to "Back to All Books", list_book_path %>
-
 .row
   .col-xs-12.col-lg-6.current-book
     h1
@@ -18,3 +10,9 @@
     = form_for(@book) do |book|
       =book.text_field :current_page, placeholder: @book.current_page, value:nil
       button.btn.btn-danger.btn-lg type="submit" Submit
+
+  .col-xs-12.col-lg-6.all-books
+    hr
+    h3 Stats for #{@book.title}
+
+

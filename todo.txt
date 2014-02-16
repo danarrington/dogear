@@ -13,9 +13,14 @@ xReading should update current page
 xrename 'name' to title
 
 Validation
--Require Title
--Require pages
+xRequire Title
+xRequire pages
 
+Bookmarks
+- Add Dogear class as reference
+- Gets created on read
+
+----old line----
 -Show page should have an edit button
 -Edit button should take you to edit page
 -Should be able to change title, pages, current page on edit page
