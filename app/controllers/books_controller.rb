@@ -1,14 +1,14 @@
 class BooksController < ApplicationController
-   def index
+   def entry
       @recently_read_book = Book.order('updated_at').last
       if @recently_read_book
         redirect_to @recently_read_book
       else
-        redirect_to list_book_path
+        redirect_to books_path
       end
    end
 
-   def list
+   def index
       @books = Book.all
    end
 

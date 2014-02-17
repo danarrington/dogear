@@ -55,8 +55,7 @@ Dogear::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-  root :to => 'books#index'
-  get 'books/list' => 'books#list', :as => :list_book
+  root :to => 'books#entry'
   resources :books
 
 

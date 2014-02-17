@@ -5,7 +5,7 @@ feature 'Listing Books' do
 
       FactoryGirl.create(:book, title: 'Redshirts')
 
-      visit '/books/list'
+      visit '/books'
 
       expect(page).to have_content('Redshirts')
    end
@@ -14,7 +14,7 @@ feature 'Listing Books' do
       FactoryGirl.create(:book, title: 'Redshirts',
                                 pages: 314, current_page: 23)
       
-      visit '/books/list'
+      visit '/books'
 
       click_link 'Redshirts'
 

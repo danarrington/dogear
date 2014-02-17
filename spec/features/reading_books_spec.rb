@@ -4,7 +4,7 @@ feature 'Reading Books' do
    scenario "Read a Book" do
       FactoryGirl.create(:book, title: "Redshirts", current_page: 2)
 
-      visit "/books/list"
+      visit "/books/"
       click_link "Redshirts"
 
       expect(page).to have_content("2")
