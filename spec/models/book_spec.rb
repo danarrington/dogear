@@ -13,11 +13,17 @@ describe Book do
     expect(build(:book, pages: nil, title: 'book title')).to have(1).errors_on(:pages)
   end
 
-  context 'with several bookmarks' do
+  context 'with some reading data' do
     it 'calculates the pace correctly' do
       book = create(:book, started_at: 7.days.ago.to_date, current_page: 140)
 
       expect(book.pace).to eq 20
+    end
+
+    it 'calculates the finish date correctly' do
+      book = create(:book, started_at: 7.days.ago.to_date, current_page: 100, pages: 300)
+
+      expect(book.finish_date).to eq 14.days.from_now.to_date
     end
   end
 

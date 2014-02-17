@@ -20,10 +20,6 @@ describe BooksController do
       get :show, id: book
       expect(response).to render_template :show
     end
-    it 'assigns the pace' do
-      book = create(:book, current_page: 30)
-      expect(assigns(:pace)).to eq book.pace
-    end
   end
 
   describe 'POST #update' do

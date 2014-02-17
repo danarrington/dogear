@@ -21,8 +21,8 @@ x Add Dogear class as reference
 x Gets created on read
 
 Stats
-- Display stats below read
-- Started, pace, finish date
+x Display stats below read
+x Started, pace, finish date
 - Show bookmarks table
 - On update, redirect to stats with anchor
 

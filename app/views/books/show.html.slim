@@ -11,10 +11,21 @@
       =book.text_field :current_page, placeholder: @book.current_page, value:nil
       button.btn.btn-danger.btn-lg type="submit" Submit
 
-  .col-xs-12.col-lg-6.all-books
+  .col-xs-12.col-lg-6.stats
     hr
     h3 Stats for #{@book.title}
     .stats
-      | Pace: #{@book.pace} pages/day
-
+      .stat
+        .stat-number
+          = @book.pace
+        .stat-word pages/day
+      - if @book.finish_date
+        .stat
+          .stat-number
+            = @book.finish_date_days
+          .stat-word days left
+      .stat
+        .stat-number
+          = (Date.today-@book.started_at.to_date).to_i
+        .stat-word days in
 
