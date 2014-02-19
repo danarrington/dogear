@@ -22,7 +22,7 @@ end
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'heroku'
-gem 'slim'
+gem 'slim-rails'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

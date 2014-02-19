@@ -1,4 +1,7 @@
 Dogear::Application.routes.draw do
+  get "users/new"
+  get "users/create"
+  get "users/show"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -57,6 +60,7 @@ Dogear::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
   root :to => 'books#entry'
   resources :books
+  resources :users
 
 
   get 'books/:id/read' => 'books#read', :as => :read_book
