@@ -33,6 +33,7 @@ All Stats
 
 Add support for kindle books
 Style all books page
+Convert old erb templates to slim
 
 ----old line----
 -Show page should have an edit button

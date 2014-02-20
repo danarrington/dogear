@@ -64,4 +64,6 @@ Dogear::Application.routes.draw do
 
 
   get 'books/:id/read' => 'books#read', :as => :read_book
+  get '/signin' => 'sessions#new', :as => :sign_in
+  post '/signin' => 'sessions#create'
 end
