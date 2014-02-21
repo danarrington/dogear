@@ -30,6 +30,9 @@ All Stats
 - Have a page with all stats
 - Books read, pages read, pages read/week, best week etc.
 
+User stuff
+- Creating a book assigns it to current user
+- Clean up sign up/sign in
 
 Add support for kindle books
 Style all books page

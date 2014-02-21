@@ -1,4 +1,5 @@
 Dogear::Application.routes.draw do
+  get "home/index"
   get "users/new"
   get "users/create"
   get "users/show"
@@ -58,10 +59,9 @@ Dogear::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-  root :to => 'books#entry'
+  root :to => 'home#index'
   resources :books
   resources :users
-
 
   get 'books/:id/read' => 'books#read', :as => :read_book
   get '/signin' => 'sessions#new', :as => :sign_in
