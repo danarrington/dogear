@@ -24,6 +24,7 @@ feature 'Listing Books' do
    end
 
    scenario 'Visit Root Page' do
+     pending
       FactoryGirl.create(:book, title: 'Redshirts', pages: 314, current_page: 23, updated_at: Date.today)
       FactoryGirl.create(:book, title: 'Old Mans War', pages: 310, current_page: 0, updated_at: Date.yesterday)
 

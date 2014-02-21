@@ -20,6 +20,7 @@ class BooksController < ApplicationController
       @book = Book.new(book_params)
       @book.started_at = Date.today
       @book.current_page = 0
+      @book.user = current_user
 
       if @book.save
          flash[:notice] = 'Book has been added'

@@ -4,6 +4,7 @@ FactoryGirl.define do
       pages 300
       current_page 0
       started_at Date.yesterday
+      association :user
 
      factory :invalid_book do
        current_page 'letters'

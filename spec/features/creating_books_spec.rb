@@ -1,17 +1,24 @@
 require 'spec_helper'
 
-feature "Creating Books" do
-   scenario "Create a Book" do
+feature 'Creating Books' do
+   scenario 'Create a Book' do
 
-      visit "/books"
+     user = create(:user)
+     visit '/'
+     click_link 'Sign in'
+     fill_in 'Email', with: user.email
+     fill_in 'Password', with: user.password
+     click_button 'Sign in'
 
-      click_link("Add new book")
+     visit '/books'
 
-      fill_in "Title", with: "Redshirts"
-      fill_in "Pages", with: 268
-      click_button("Create")
+     click_link('Add new book')
 
-      expect(page).to have_content("Book has been added")
-      expect(page).to have_content("Redshirts")
+     fill_in 'Title', with: 'Redshirts'
+     fill_in 'Pages', with: 268
+     click_button('Create')
+
+     expect(page).to have_content('Book has been added')
+     expect(page).to have_content('Redshirts')
    end
 end
