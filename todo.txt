@@ -33,9 +33,9 @@ All Stats
 User stuff
 x Creating a book assigns it to current user
 x Signing up signs you in
-- Add sign out link/behavior
-- Clean up sign up/sign in
-
+- Conditional sign up/sign in in nav bar
+- Only list current users books
+- If not signed in maybe show like a 'total books, total pages' type stats?
 
 Add support for kindle books
 Style all books page

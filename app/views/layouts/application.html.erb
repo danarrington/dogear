@@ -20,8 +20,14 @@
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="<%= books_path%>">DogEar</a>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Sign in", sign_in_path %>
+      <% if current_user %>
+        <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link"><%=current_user.name%></a></p>
+      <% else %>
+        <!--<p class="navbar-text navbar-right">Sign in</p>-->
+        <!--<p class="navbar-text navbar-right">Sign up</p>-->
+      <%= link_to "Sign up", new_user_path, {class: 'navbar-text navbar-right'} %>
+      <%= link_to "Sign in", sign_in_path, {class: 'navbar-text navbar-right'} %>
+      <% end %>
     </div>
   </div>
 </div>
