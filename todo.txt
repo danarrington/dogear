@@ -31,8 +31,11 @@ All Stats
 - Books read, pages read, pages read/week, best week etc.
 
 User stuff
-- Creating a book assigns it to current user
+x Creating a book assigns it to current user
+x Signing up signs you in
+- Add sign out link/behavior
 - Clean up sign up/sign in
+
 
 Add support for kindle books
 Style all books page
