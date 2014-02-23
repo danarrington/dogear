@@ -51,4 +51,21 @@ describe BooksController do
     end
   end
 
+  describe 'GET #index' do
+    context 'with signed in user' do
+      before :each do
+        @user = create(:user)
+        session[:user_id] = @user.id
+      end
+      it 'only lists signed in users books' do
+        user_book = create(:book, user: @user)
+        other_user = create(:user)
+        other_book = create(:book, user: other_user)
+
+        get :index
+        expect(assigns(:books)).to match_array([user_book])
+      end
+    end
+  end
+
 end

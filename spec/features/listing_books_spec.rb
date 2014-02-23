@@ -1,9 +1,19 @@
 require 'spec_helper'
 
 feature 'Listing Books' do
+   before :each do
+     @user = create(:user)
+
+     visit '/'
+
+     click_link 'Sign in'
+     fill_in 'Email', with: @user.email
+     fill_in 'Password', with: @user.password
+     click_button 'Sign in'
+   end
    scenario 'List all books' do
 
-      FactoryGirl.create(:book, title: 'Redshirts')
+      FactoryGirl.create(:book, title: 'Redshirts', user:@user)
 
       visit '/books'
 
@@ -12,7 +22,7 @@ feature 'Listing Books' do
 
    scenario 'View a book' do
       FactoryGirl.create(:book, title: 'Redshirts',
-                                pages: 314, current_page: 23)
+                                pages: 314, current_page: 23, user:@user)
       
       visit '/books'
 

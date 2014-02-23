@@ -1,18 +1,28 @@
 require 'spec_helper'
 
 feature 'Reading Books' do
-   scenario "Read a Book" do
-      FactoryGirl.create(:book, title: "Redshirts", current_page: 2)
+  before :each do
+    @user = create(:user)
 
-      visit "/books/"
-      click_link "Redshirts"
+    visit '/'
 
-      expect(page).to have_content("2")
+    click_link 'Sign in'
+    fill_in 'Email', with: @user.email
+    fill_in 'Password', with: @user.password
+    click_button 'Sign in'
+  end
+  scenario 'Read a Book' do
+    FactoryGirl.create(:book, title: 'Redshirts', current_page: 2, user:@user)
 
-      fill_in "book_current_page", with: "25"
+    visit '/books/'
+    click_link 'Redshirts'
 
-      click_button "Submit"
+    expect(page).to have_content('2')
 
-      expect(page).to have_content("25")
-   end
+    fill_in 'book_current_page', with: '25'
+
+    click_button 'Submit'
+
+    expect(page).to have_content('25')
+  end
 end
