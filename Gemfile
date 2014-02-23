@@ -21,7 +21,7 @@ end
 
 gem 'jquery-rails'
 gem 'bootstrap-sass'
-gem 'heroku'
+#gem 'heroku'
 gem 'slim-rails'
 
 # To use ActiveModel has_secure_password
@@ -56,4 +56,5 @@ end
 
 group :production do
    gem 'pg'
+   gem 'rails_12factor'
 end
