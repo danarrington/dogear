@@ -4,16 +4,14 @@ describe BooksController do
 
   describe 'POST #create' do
     before :each do
-      @user = create(:user)
-      session[:user_id] = @user.id
+      @user = set_user_session(create(:user))
+      post :create, book: attributes_for(:book)
     end
     it 'sets started at to today' do
-      post :create, book: attributes_for(:book)
       expect(Book.first.started_at).to eq Date.today
     end
 
     it 'sets the logged in user as user' do
-      post :create, book: attributes_for(:book)
       expect(Book.first.user).to eq @user
     end
   end

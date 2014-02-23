@@ -34,7 +34,7 @@ User stuff
 x Creating a book assigns it to current user
 x Signing up signs you in
 x Conditional sign up/sign in in nav bar
-- Only list current users books
+x Only list current users books
 - Remember me
 - If not signed in maybe show like a 'total books, total pages' type stats?
 
