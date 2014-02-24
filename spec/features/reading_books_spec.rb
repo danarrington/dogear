@@ -1,15 +1,10 @@
 require 'spec_helper'
 
 feature 'Reading Books' do
-  before :each do
+  background :each do
     @user = create(:user)
 
-    visit '/'
-
-    click_link 'Sign in'
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
-    click_button 'Sign in'
+    sign_in @user
   end
   scenario 'Read a Book' do
     FactoryGirl.create(:book, title: 'Redshirts', current_page: 2, user:@user)
