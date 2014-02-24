@@ -41,7 +41,7 @@ x Only list current users books
 Add support for kindle books
 Style all books page
 Convert old erb templates to slim
-
+Way to finish books.  Open/closed books
 ----old line----
 -Show page should have an edit button
 -Edit button should take you to edit page

@@ -1,7 +1,9 @@
-ul
-  - @books.each do |book|
-    li
-      =link_to book.title, book
-= link_to 'Add new book', new_book_path
+.row
+  .col-xs-12.col-lg-6.open-books
+    h1 Open Books
+    - @books.each do |book|
+      div.book
+        =link_to book.title, book
+    = link_to 'Add new book', new_book_path, {class: 'btn btn-default'}
 
 
