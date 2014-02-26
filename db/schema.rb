@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221030224) do
+ActiveRecord::Schema.define(version: 20140226160332) do
 
   create_table "bookmarks", force: true do |t|
     t.integer  "book_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140221030224) do
     t.datetime "updated_at",   null: false
     t.datetime "started_at"
     t.integer  "user_id"
+    t.boolean  "finished"
   end
 
   add_index "books", ["user_id"], name: "index_books_on_user_id"
