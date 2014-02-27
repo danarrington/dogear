@@ -9,7 +9,7 @@ class BooksController < ApplicationController
    end
 
    def index
-      @books = Book.where(user: current_user).order(updated_at: :desc)
+      @books = Book.where(user: current_user, finished: false).order(updated_at: :desc)
    end
 
    def new

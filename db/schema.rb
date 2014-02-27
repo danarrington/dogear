@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20140226160332) do
     t.string   "title"
     t.integer  "pages"
     t.integer  "current_page"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.datetime "started_at"
     t.integer  "user_id"
-    t.boolean  "finished"
+    t.boolean  "finished",     default: false
   end
 
   add_index "books", ["user_id"], name: "index_books_on_user_id"
