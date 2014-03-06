@@ -33,7 +33,6 @@ class BooksController < ApplicationController
   end
 
   def show
-    puts 'f: ' + @book.finished?.to_s
     render @book.finished? ? :show_finished : :show
   end
 

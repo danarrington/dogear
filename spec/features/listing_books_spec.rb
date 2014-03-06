@@ -31,6 +31,17 @@ feature 'Listing Books' do
     expect(page).to have_content('23')
   end
 
+  scenario 'View a kindle book' do
+    FactoryGirl.create(:book, title: 'Redshirts',
+                       pages: 300, current_page: 25, user:@user, kindle:true)
+
+    visit '/books'
+    click_link 'Redshirts'
+
+    expect(page).to have_content('75')
+    expect(page).to have_content('25%')
+  end
+
   scenario 'Visit Root Page' do
     pending
     FactoryGirl.create(:book, title: 'Redshirts', pages: 314, current_page: 23, updated_at: Date.today)

@@ -19,4 +19,8 @@ class Book < ActiveRecord::Base
   def finish_date_days
     (finish_date - Time.now.utc.to_date).round if finish_date
   end
+
+  def adjusted_current_page
+    kindle? ? (current_page.to_f/100 * pages).to_i : current_page
+  end
 end

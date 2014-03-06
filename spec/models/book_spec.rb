@@ -27,5 +27,19 @@ describe Book do
     end
   end
 
+  context 'that is not a kindle book' do
+    it 'returns current page as adjusted_current_page' do
+      book = create(:book, current_page: 50, pages: 200, kindle: false)
 
+      expect(book.adjusted_current_page).to eq 50
+    end
+  end
+
+  context 'that is a kindle book' do
+    it 'returns page not percent as adjusted_current_page' do
+      book = create(:book, current_page: 50, pages: 200, kindle: true)
+
+      expect(book.adjusted_current_page).to eq 100 #50% of 200 is 100
+    end
+  end
 end

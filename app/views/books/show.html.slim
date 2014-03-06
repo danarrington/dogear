@@ -4,11 +4,12 @@
       = @book.title
     .current-page
       | pg&nbsp;
-      .number = @book.current_page
+      .number = @book.adjusted_current_page
       |  of&nbsp;
       .number = @book.pages
+      = " (#{@book.current_page}%)" if @book.kindle
     = form_for(@book) do |book|
-      =book.text_field :current_page, placeholder: @book.current_page, value:nil
+      =book.text_field :current_page, placeholder: page_placeholder(@book), value:nil
       button.btn.btn-danger.btn-lg type="submit" Submit
 
   .col-xs-12.col-lg-6.stats
