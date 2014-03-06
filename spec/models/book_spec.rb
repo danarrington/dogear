@@ -14,32 +14,42 @@ describe Book do
   end
 
   context 'with some reading data' do
-    it 'calculates the pace correctly' do
-      book = create(:book, started_at: 7.days.ago.to_date, current_page: 140)
 
-      expect(book.pace).to eq 20
-    end
-
-    it 'calculates the finish date correctly' do
-      book = create(:book, started_at: 7.days.ago.to_date, current_page: 100, pages: 300)
-
-      expect(book.finish_date).to eq 14.days.from_now.to_date
-    end
   end
 
   context 'that is not a kindle book' do
-    it 'returns current page as adjusted_current_page' do
-      book = create(:book, current_page: 50, pages: 200, kindle: false)
+    before :each do
+      @book = create(:book, started_at: 5.days.ago.to_date, current_page: 100, pages: 300, kindle: false)
+    end
 
-      expect(book.adjusted_current_page).to eq 50
+    it 'calculates the pace correctly' do
+      expect(@book.pace).to eq 20
+    end
+
+    it 'calculates the finish date correctly' do
+      expect(@book.finish_date).to eq 10.days.from_now.to_date
+    end
+
+    it 'returns current page as adjusted_current_page' do
+      expect(@book.adjusted_current_page).to eq 100
     end
   end
 
   context 'that is a kindle book' do
-    it 'returns page not percent as adjusted_current_page' do
-      book = create(:book, current_page: 50, pages: 200, kindle: true)
+    before :each do
+      @book = create(:book, started_at: 5.days.ago.to_date, current_page: 50, pages: 300, kindle: true)
+    end
 
-      expect(book.adjusted_current_page).to eq 100 #50% of 200 is 100
+    it 'calculates the pace correctly' do
+      expect(@book.pace).to eq 30
+    end
+
+    it 'calculates the finish date correctly' do
+      expect(@book.finish_date).to eq 5.days.from_now.to_date
+    end
+
+    it 'returns page not percent as adjusted_current_page' do
+      expect(@book.adjusted_current_page).to eq 150 #50% of 300 is 150
     end
   end
 end
