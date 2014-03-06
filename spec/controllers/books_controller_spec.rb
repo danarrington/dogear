@@ -17,15 +17,25 @@ describe BooksController do
   end
 
   describe 'GET #show' do
-    it 'assigns the requested book to @book' do
-      book = create(:book)
-      get :show, id: book
-      expect(assigns(:book)).to eq book
+    before :each do
+      @book = create(:book, finished: finished)
+      get :show, id: @book
     end
-    it 'renders the show template' do
-      book = create(:book)
-      get :show, id: book
-      expect(response).to render_template :show
+
+    context 'with an open book' do
+      let(:finished) {false}
+      it 'assigns the requested book to @book' do
+        expect(assigns(:book)).to eq @book
+      end
+      it 'renders the show template' do
+        expect(response).to render_template :show
+      end
+    end
+    context 'with a finished book' do
+      let!(:finished) {true}
+      it 'renders the show_finished template' do
+        expect(response).to render_template :show_finished
+      end
     end
   end
 
@@ -73,4 +83,19 @@ describe BooksController do
     end
   end
 
+  describe 'POST #finish' do
+    before :each do
+      @book = create(:book, finished: false)
+    end
+    it 'sets finished to true' do
+      patch :finish, id: @book
+
+      @book.reload
+      expect(@book.finished).to eq true
+    end
+    it 'redirects to show' do
+      patch :finish, id: @book
+      expect(response).to redirect_to @book
+    end
+  end
 end

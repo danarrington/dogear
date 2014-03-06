@@ -29,3 +29,11 @@
           = (Date.today-@book.started_at.to_date).to_i
         .stat-word days in
 
+- if @book.updated_at > 5.minutes.ago
+  .row
+    .col-xs-12.col-lg-6
+      hr
+      = form_for(@book, url: finish_book_path, method: 'patch') do
+        button.btn.btn-danger.btn-lg type="submit" Finish
+
+

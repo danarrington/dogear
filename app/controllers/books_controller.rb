@@ -1,53 +1,62 @@
 class BooksController < ApplicationController
-   def entry
-      @recently_read_book = Book.order('updated_at').last
-      if @recently_read_book
-        redirect_to @recently_read_book
-      else
-        redirect_to books_path
-      end
-   end
+  before_action :set_book, only: [:show, :read, :finish]
 
-   def index
-      @books = Book.where(user: current_user, finished: false).order(updated_at: :desc)
-   end
+  def entry
+    @recently_read_book = Book.order('updated_at').last
+    if @recently_read_book
+      redirect_to @recently_read_book
+    else
+      redirect_to books_path
+    end
+  end
 
-   def new
-      @book = Book.new
-   end
+  def index
+    @books = Book.where(user: current_user, finished: false).order(updated_at: :desc)
+  end
 
-   def create
-      @book = Book.new(book_params)
-      @book.started_at = Date.today
-      @book.current_page = 0
-      @book.user = current_user
+  def new
+    @book = Book.new
+  end
 
-      if @book.save
-         flash[:notice] = 'Book has been added'
-         redirect_to @book
-      else
+  def create
+    @book = Book.new(book_params)
+    @book.started_at = Date.today
+    @book.current_page = 0
+    @book.user = current_user
 
-      end
-   end
-
-   def show
-      @book = Book.find(params[:id])
-   end
-
-   def read
-      @book = Book.find(params[:id])
-   end
-
-   def update
-      @book = Book.find(params[:id])
-      @book.update_attributes(book_params)
-      @book.bookmarks.create(page: @book.current_page )
+    if @book.save
+      flash[:notice] = 'Book has been added'
       redirect_to @book
-   end
+    else
+
+    end
+  end
+
+  def show
+    puts 'f: ' + @book.finished?.to_s
+    render @book.finished? ? :show_finished : :show
+  end
+
+  def finish
+    @book.finished = true
+    @book.save
+    redirect_to @book
+  end
+
+  def update
+    @book = Book.find(params[:id])
+    @book.update_attributes(book_params)
+    @book.bookmarks.create(page: @book.current_page )
+    redirect_to @book
+  end
 
   private
-    def book_params
-      params.require(:book).permit(:title, :pages, :current_page)
-    end
+  def book_params
+    params.require(:book).permit(:title, :pages, :current_page)
+  end
+
+  def set_book
+    @book = Book.find(params[:id])
+  end
 
 end

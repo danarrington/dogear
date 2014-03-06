@@ -1,3 +1,15 @@
+Finishing Books
+x After 'reading' show finish button which finishes a book
+- Add a new 'finished books' list to main page
+
+- Fix utc issue breaking tests
+
+Kindle Books
+- Add kindle boolean and actual pages to book
+- Kindle books should display calculated page info
+- Kindle books should show percent after and a percent sign in the read box as placeholder
+- Total stats should reflect calculated pages not percent pages
+
 xBooks page should let you create a book
 xBooks page should list all books
 xClicking on a book should take you to the show page
@@ -38,24 +50,20 @@ x Only list current users books
 - Remember me
 - If not signed in maybe show like a 'total books, total pages' type stats?
 
-Add support for kindle books
 Style all books page
 Convert old erb templates to slim
 Way to finish books.  Open/closed books
 
 
 Little things
+-round up for days left
 -strip lower sign in email
 -when adding book make pages a number field
 -focus on form pages when navigating to them
+
 ----old line----
 -Show page should have an edit button
 -Edit button should take you to edit page
 -Should be able to change title, pages, current page on edit page
 
--Home page should show most recently read book
--Home page should have a textbox for reading
--Reading from home page should update current page on home page
 
-Authentication
--Set up devise
