@@ -6,16 +6,19 @@ feature 'Listing Books' do
 
     sign_in @user
   end
-  scenario 'List all open books' do
+  scenario 'List all books' do
 
     FactoryGirl.create(:book, title: 'Redshirts', user:@user)
     FactoryGirl.create(:book, title: 'Just a Geek', user:@user, finished:true)
 
     visit '/books'
 
-    expect(page).to have_content('Redshirts')
-    expect(page).to_not have_content('Just a Geek')
-
+    within('#open-books') do
+      expect(page).to have_content('Redshirts')
+    end
+    within('#finished-books') do
+      expect(page).to have_content('Just a Geek')
+    end
   end
 
   scenario 'View a book' do

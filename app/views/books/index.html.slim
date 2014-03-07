@@ -1,5 +1,5 @@
 .row
-  .std-col.open-books
+  .std-col.book-list id="open-books"
     h1 Open Books
     - @books.each do |book|
       div.book
@@ -15,7 +15,7 @@
     p Books Finished
 
 .row
-  .std-col.open-books
+  .std-col.book-list id="finished-books"
     h2 Finished Books
     - @finished_books.each do |book|
       div.book
