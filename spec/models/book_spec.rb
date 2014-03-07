@@ -13,6 +13,10 @@ describe Book do
     expect(build(:book, pages: nil, title: 'book title')).to have(1).errors_on(:pages)
   end
 
+  it 'is invalid without current_page' do
+    expect(build(:book, current_page: nil)).to have(1).errors_on(:current_page)
+  end
+
   context 'with some reading data' do
 
   end

@@ -5,6 +5,7 @@ class Book < ActiveRecord::Base
 
   validates :title, presence: true
   validates :pages, presence: true
+  validates :current_page, presence: true
   validates :user, presence: true
 
   def pace

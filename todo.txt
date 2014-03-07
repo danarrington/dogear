@@ -1,13 +1,15 @@
 Finishing Books
 x After 'reading' show finish button which finishes a book
+- Make the finish button actually work
+- Make finished view
 - Add a new 'finished books' list to main page
 
 x Fix utc issue breaking tests
 
 Kindle Books
-- Add kindle boolean to book
-- Kindle books should display calculated page info
-- Kindle books should show percent after and a percent sign in the read box as placeholder
+x Add kindle boolean to book
+x Kindle books should display calculated page info
+x Kindle books should show percent after and a percent sign in the read box as placeholder
 - Total stats should reflect calculated pages not percent pages
 - Add explanation of kindle checkbox on new book page (ie, put in the total pages not 100)
 
