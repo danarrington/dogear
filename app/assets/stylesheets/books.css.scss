@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .current-book {
-  text-align:center;
   h1 {font-size:45px;}
   .current-page {
     font-size:22px;
@@ -15,12 +14,9 @@
 h3 { text-align: center}
 
 .stats {
-  text-align:center;
   .stat-number { font-size: 24px; font-weight:bold}
 }
 
 .open-books {
-  text-align:center;
   .book {font-size: 24px;}
 }
-.center { text-align:center;}

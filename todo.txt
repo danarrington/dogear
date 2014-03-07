@@ -1,6 +1,6 @@
 Finishing Books
 x After 'reading' show finish button which finishes a book
-- Make the finish button actually work
+x Make the finish button actually work
 - Make finished view
 - Add a new 'finished books' list to main page
 

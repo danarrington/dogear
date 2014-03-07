@@ -11,3 +11,6 @@
  *= require_self
  *= require_tree .
  */
+
+@import "bootstrap";
+.std-col { @extend .col-xs-12; @extend .col-lg-6; text-align:center;}
