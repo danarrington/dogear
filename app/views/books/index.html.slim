@@ -4,6 +4,22 @@
     - @books.each do |book|
       div.book
         =link_to book.title, book
+    br
+    br
     = link_to 'Add new book', new_book_path, {class: 'btn btn-default'}
+
+  .std-col
+    h1 = @stats[:total_pages]
+    p Total Pages Read
+    h1 = @stats[:finished_books]
+    p Books Finished
+
+.row
+  .std-col.open-books
+    h2 Finished Books
+    - @finished_books.each do |book|
+      div.book
+        =link_to book.title, book
+
 
 

@@ -12,6 +12,11 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.where(user: current_user, finished: false).order(updated_at: :desc)
+    @finished_books = Book.where(user: current_user, finished: true).order(updated_at: :desc)
+    @stats = {
+        total_pages: Stats.total_pages(current_user),
+        finished_books: Stats.finished_books(current_user)
+    }
   end
 
   def new
@@ -51,7 +56,7 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :pages, :current_page)
+    params.require(:book).permit(:title, :pages, :current_page, :kindle)
   end
 
   def set_book

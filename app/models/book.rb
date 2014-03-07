@@ -22,6 +22,10 @@ class Book < ActiveRecord::Base
   end
 
   def adjusted_current_page
-    kindle? ? (current_page.to_f/100 * pages).to_i : current_page
+    if kindle? && finished?
+      pages
+    else
+      kindle? ? (current_page.to_f/100 * pages).to_i : current_page
+    end
   end
 end

@@ -1,11 +1,17 @@
-h2 New book
-= form_for(@book) do |f|
-   p
-      = f.label :title
-      br
-      = f.text_field :title
-   p
-      = f.label :pages
-      br
-      = f.text_field :pages
-   = f.submit
+.row
+  .std-col.new-book
+    h2 New book
+    = form_for(@book) do |f|
+      p
+        = f.label :title
+        br
+        = f.text_field :title
+      p
+        = f.label :pages
+        br
+        = f.text_field :pages, {class: 'pages'}
+      p
+        = f.label :kindle
+        br
+        = f.check_box :kindle
+      = f.submit

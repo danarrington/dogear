@@ -73,12 +73,18 @@ describe BooksController do
         get :index
         expect(assigns(:books)).to match_array([user_book])
       end
-      it 'only lists not finished books' do
-        open_book = create(:book, user:@user)
-        closed_book = create(:book, user:@user, finished:true)
-
-        get :index
-        expect(assigns(:books)).to match_array([open_book])
+      context 'with open and finished books' do
+        before :each do
+          @open_book = create(:book, user:@user)
+          @closed_book = create(:book, user:@user, finished:true)
+          get :index
+        end
+        it 'lists open books' do
+          expect(assigns(:books)).to match_array([@open_book])
+        end
+        it 'lists finished books' do
+          expect(assigns(:finished_books)).to match_array([@closed_book])
+        end
       end
     end
   end
