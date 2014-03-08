@@ -18,5 +18,11 @@ describe UsersController do
       post :create, user: attributes_for(:user)
       expect(session[:user_id]).to_not be_nil
     end
+
+    it 'downcases the email' do
+      email = 'UPPER@EMail.com'
+      post :create, user: attributes_for(:user, email: email)
+      expect(User.first.email).to eq email.downcase
+    end
   end
 end
