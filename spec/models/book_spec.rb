@@ -32,20 +32,18 @@ describe Book do
   end
 
   context 'that is a kindle book' do
-    before :each do
-      @book = create(:book, started_at: 5.days.ago.to_date, current_page: 50, pages: 300, kindle: true)
-    end
+    subject(:book) {create(:book, started_at: 5.days.ago.to_date, current_page: 50, pages: 300, kindle: true)}
 
     it 'calculates the pace correctly' do
-      expect(@book.pace).to eq 30
+      expect(book.pace).to eq 30
     end
 
     it 'calculates the finish date correctly' do
-      expect(@book.finish_date).to eq 5.days.from_now.to_date
+      expect(book.finish_date).to eq 5.days.from_now.to_date
     end
 
     it 'returns page not percent as adjusted_current_page' do
-      expect(@book.adjusted_current_page).to eq 150 #50% of 300 is 150
+      expect(book.adjusted_current_page).to eq 150 #50% of 300 is 150
     end
   end
 end
