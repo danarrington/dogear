@@ -20,8 +20,8 @@ Stats Ideas
 - Total Books
 # Monthly/weekly stats?  Best month/week
 # last 4 weeks?
+
 Little things
--strip lower sign in email
 -when adding book make pages a number field
 -focus on form pages when navigating to them
 
