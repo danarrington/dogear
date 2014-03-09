@@ -1,6 +1,6 @@
 == DogEar
 
-DogEar is a simple application to keep track of your reading.  Tell it which page your on and it will let you know
+DogEar is a simple application to keep track of your reading.  Tell it which page you're on and it will let you know
 how fast you're reading the book and when you should be done.  It also keeps track of the total number of books
 and pages you've read.
 

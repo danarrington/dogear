@@ -3,17 +3,17 @@ require 'spec_helper'
 describe BooksController do
 
   describe 'POST #create' do
+    let!(:user) {set_user_session(create(:user))}
+    subject(:book) {Book.first}
     before :each do
-      @user = set_user_session(create(:user))
       post :create, book: attributes_for(:book)
     end
-    it 'sets started at to today' do
-      expect(Book.first.started_at).to eq Date.today
-    end
 
-    it 'sets the logged in user as user' do
-      expect(Book.first.user).to eq @user
-    end
+    its(:started_at) {should eq Date.today}
+
+    its(:user) {should eq user}
+
+    its(:current_page) {should eq 0}
   end
 
   describe 'GET #show' do
@@ -90,18 +90,17 @@ describe BooksController do
   end
 
   describe 'POST #finish' do
-    before :each do
-      @book = create(:book, finished: false)
-    end
-    it 'sets finished to true' do
-      patch :finish, id: @book
+    let(:book) { create(:book, finished: false)}
 
-      @book.reload
-      expect(@book.finished).to eq true
+    it 'sets finished to true' do
+      patch :finish, id: book
+
+      book.reload
+      expect(book.finished).to eq true
     end
     it 'redirects to show' do
-      patch :finish, id: @book
-      expect(response).to redirect_to @book
+      patch :finish, id: book
+      expect(response).to redirect_to book
     end
   end
 end

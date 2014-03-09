@@ -40,8 +40,12 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'debugger'
 
 group :test, :development do
-   gem 'rspec-rails', "~> 2.13.2"
-   gem 'sqlite3'
+  gem 'rspec-rails', "~> 2.13.2"
+  gem 'sqlite3'
+  gem 'guard-rspec'
+  gem 'terminal-notifier-guard'
+  gem 'spork-rails'
+  gem 'guard-spork'
 end
 
 group :test do
@@ -55,6 +59,6 @@ group :test do
 end
 
 group :production do
-   gem 'pg'
-   gem 'rails_12factor'
+  gem 'pg'
+  gem 'rails_12factor'
 end

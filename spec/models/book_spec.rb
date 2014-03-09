@@ -22,21 +22,13 @@ describe Book do
   end
 
   context 'that is not a kindle book' do
-    before :each do
-      @book = create(:book, started_at: 5.days.ago.to_date, current_page: 100, pages: 300, kindle: false)
-    end
+    subject(:book)  {create(:book, started_at: 5.days.ago.to_date, current_page: 100, pages: 300, kindle: false)}
 
-    it 'calculates the pace correctly' do
-      expect(@book.pace).to eq 20
-    end
+    its(:pace) { should eq 20 }
 
-    it 'calculates the finish date correctly' do
-      expect(@book.finish_date).to eq 10.days.from_now.to_date
-    end
+    its(:finish_date) {should eq 10.days.from_now.to_date}
 
-    it 'returns current page as adjusted_current_page' do
-      expect(@book.adjusted_current_page).to eq 100
-    end
+    its(:adjusted_current_page) {should eq 100}
   end
 
   context 'that is a kindle book' do
