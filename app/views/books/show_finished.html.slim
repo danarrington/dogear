@@ -1,1 +1,32 @@
-.div Finished
+.row
+  .std-col.current-book
+    h1
+      = @book.title
+    .current-page
+      .number = @book.adjusted_current_page
+      |  pages
+    hr
+    .stats
+      .stat
+        .stat-number
+          = @book.started_at.utc.to_date.strftime('%b %d')
+        .stat-words started
+        .stat-number
+          = @book.updated_at.utc.to_date.strftime('%b %d')
+        .stat-words finished
+        .stat-number
+          = @book.pace
+        .stat-word pages/day
+      .stat
+        .stat-number
+          = (@book.updated_at.utc.to_date - @book.started_at.utc.to_date).to_i
+        .stat-word days to read
+
+- if @book.updated_at > 5.minutes.ago
+  .row
+    .std-col
+      hr
+      = form_for(@book, url: finish_book_path, method: 'patch') do
+        button.btn.btn-danger.btn-lg type="submit" Finish
+
+

@@ -1,23 +1,6 @@
-Finishing Books
-x After 'reading' show finish button which finishes a book
-x Make the finish button actually work
-- Make finished view
-- Add a new 'finished books' list to main page
-
-x Fix utc issue breaking tests
-
-Kindle Books
-x Add kindle boolean to book
-x Kindle books should display calculated page info
-x Kindle books should show percent after and a percent sign in the read box as placeholder
-- Total stats should reflect calculated pages not percent pages
-- Add explanation of kindle checkbox on new book page (ie, put in the total pages not 100)
-
-- Update rails readme
-
 Stats Ideas
-- Total Pages
-- Total Books
+x Total Pages
+x Total Books
 # Monthly/weekly stats?  Best month/week
 # last 4 weeks?
 
@@ -28,7 +11,23 @@ Little things
 
 ----------- DONE ------------
 
-xBooks page should let you create a book
+x Update rails readme
+
+xFinishing Books
+x After 'reading' show finish button which finishes a book
+x Make the finish button actually work
+x Make finished view
+x Add a new 'finished books' list to main page
+
+x Fix utc issue breaking tests
+
+Kindle Books
+x Add kindle boolean to book
+x Kindle books should display calculated page info
+x Kindle books should show percent after and a percent sign in the read box as placeholder
+x Total stats should reflect calculated pages not percent pages
+- Add explanation of kindle checkbox on new book page (ie, put in the total pages not 100)Books page should let you create a book
+
 xBooks page should list all books
 xClicking on a book should take you to the show page
 
