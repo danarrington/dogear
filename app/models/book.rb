@@ -9,7 +9,7 @@ class Book < ActiveRecord::Base
   validates :user, presence: true
 
   def pace
-    days = (Time.now.utc.to_date - started_at.to_date).to_f
+    days = ((Time.now.utc - started_at)/1.day).ceil.to_f
     (adjusted_current_page/days).round(1)
   end
 

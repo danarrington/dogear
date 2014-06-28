@@ -27,7 +27,7 @@ feature 'Reading Books' do
 
     click_button 'Finish'
 
-    expect(page).to have_content('Finished')
+    expect(page).to have_content('finished')
     expect(page).to_not have_field('book_current_page')
 
     #click_link 'DogEar'

@@ -18,11 +18,14 @@ describe Book do
   end
 
   context 'with some reading data' do
-
+    subject(:book) {create(:book, started_at: 1.hour.ago, current_page: 10, pages: 100, kindle:false)}
+    it 'calculates days discreetly' do
+      expect(book.pace).to eq 10
+    end
   end
 
   context 'that is not a kindle book' do
-    subject(:book)  {create(:book, started_at: 5.days.ago.to_date, current_page: 100, pages: 300, kindle: false)}
+    subject(:book)  {create(:book, started_at: 5.days.ago+1.hour, current_page: 100, pages: 300, kindle: false)}
 
     its(:pace) { should eq 20 }
 
@@ -32,7 +35,7 @@ describe Book do
   end
 
   context 'that is a kindle book' do
-    subject(:book) {create(:book, started_at: 5.days.ago.to_date, current_page: 50, pages: 300, kindle: true)}
+    subject(:book) {create(:book, started_at: 5.days.ago+1.hour, current_page: 50, pages: 300, kindle: true)}
 
     it 'calculates the pace correctly' do
       expect(book.pace).to eq 30
