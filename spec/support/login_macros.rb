@@ -1,6 +1,6 @@
 module LoginMacros
-  def set_user_session(user)
-    session[:user_id] = user.id
+  def set_user_token(user)
+    cookies[:auth_token] = user.auth_token
     user
   end
 

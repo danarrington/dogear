@@ -1,3 +1,10 @@
+- Remember me
+  - Rake task to generate tokens for existing users
+- Edit a book
+- Log out
+  - Destroy auth token from cookie
+- Style login page (even just a little)
+
 Stats Ideas
 x Total Pages
 x Total Books

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe BooksController do
 
   describe 'POST #create' do
-    let!(:user) {set_user_session(create(:user))}
+    let!(:user) {set_user_token(create(:user))}
     subject(:book) {Book.first}
     before :each do
       post :create, book: attributes_for(:book)
@@ -63,7 +63,7 @@ describe BooksController do
     context 'with signed in user' do
       before :each do
         @user = create(:user)
-        session[:user_id] = @user.id
+        cookies[:auth_token] = @user.auth_token
       end
       it 'only lists signed in users books' do
         user_book = create(:book, user: @user)

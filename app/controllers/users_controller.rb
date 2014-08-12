@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user.email.downcase!
 
     if @user.save
-      session[:user_id] = @user.id
+      sign_in_user(@user, false)
       flash[:notice] = 'You have signed up successfully.'
       redirect_to books_path
     else

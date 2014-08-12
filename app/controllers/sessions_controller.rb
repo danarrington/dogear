@@ -5,16 +5,15 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.where(email: params[:signin][:email].strip.downcase).first
+    user = User.find_by_email(params[:signin][:email].strip.downcase)
 
     if user && user.authenticate(params[:signin][:password])
-      session[:user_id] = user.id
-      flash[:notice] = 'Signed in successfully.'
-
-      redirect_to root_url
+      sign_in_user(user, params[:signin][:remember_me])
+      redirect_to root_url, notice: 'Signed in successfully'
     else
       flash[:error] = 'Sorry.'
       render :new
     end
   end
+
 end

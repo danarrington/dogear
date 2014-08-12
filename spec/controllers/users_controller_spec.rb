@@ -16,7 +16,7 @@ describe UsersController do
     end
     it 'signs in the new user' do
       post :create, user: attributes_for(:user)
-      expect(session[:user_id]).to_not be_nil
+      expect(cookies[:auth_token]).to_not be_nil
     end
 
     it 'downcases the email' do

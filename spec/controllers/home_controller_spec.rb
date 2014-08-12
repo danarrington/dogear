@@ -5,7 +5,7 @@ describe HomeController do
   describe "GET 'index'" do
     context 'with logged in user' do
       before :each do
-        @user = set_user_session(create(:user))
+        @user = set_user_token(create(:user))
       end
       context 'with started book' do
         it 'redirects to most recently read book' do
