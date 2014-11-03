@@ -1,7 +1,3 @@
-x Fix historical pace on main page
-
-x Remember me
-  x Rake task to generate tokens for existing users
 - Edit a book
 - Log out
   - Destroy auth token from cookie
@@ -19,9 +15,18 @@ Little things
 x tests always pass
 - favicon
 
+Dates
+- Set a timezone to pacific
+- Dates currently displayed in utc, show in pacific.
+- Finished is updated_at, should be bookmarks.last.created_at
+
 
 ----------- DONE ------------
 
+x Fix historical pace on main page
+
+x Remember me
+  x Rake task to generate tokens for existing users
 x Update rails readme
 
 xFinishing Books

@@ -15,11 +15,16 @@
     p Books Finished
 
 .row
-  .std-col.book-list id="finished-books"
+  .std-col.finished-book-list id="finished-books"
     h2 Finished Books
     - @finished_books.each do |book|
       div.book
         =link_to book.title, book
+        .finished-book-stats
+          strong => book.pages
+          | pages | #{book.started_short} - #{book.finished_short} |&nbsp;
+          strong =< book.pace
+          | pg/day
 
 
 

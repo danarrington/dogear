@@ -9,10 +9,10 @@
     .stats
       .stat
         .stat-number
-          = @book.started_at.utc.to_date.strftime('%b %d')
+          = @book.started_short
         .stat-words started
         .stat-number
-          = @book.updated_at.utc.to_date.strftime('%b %d')
+          = @book.finished_short
         .stat-words finished
         .stat-number
           = @book.pace

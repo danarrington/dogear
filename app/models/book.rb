@@ -29,4 +29,12 @@ class Book < ActiveRecord::Base
       kindle? ? (current_page.to_f/100 * pages).to_i : current_page
     end
   end
+
+  def started_short
+    started_at.utc.to_date.strftime('%b %d')
+  end
+
+  def finished_short
+    bookmarks.last.created_at.utc.to_date.strftime('%b %d')
+  end
 end
