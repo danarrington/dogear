@@ -8,8 +8,8 @@ feature 'Listing Books' do
   end
   scenario 'List all books' do
 
-    FactoryGirl.create(:book, title: 'Redshirts', user:@user)
-    FactoryGirl.create(:book, title: 'Just a Geek', user:@user, finished:true)
+    create(:book, title: 'Redshirts', user:@user)
+    create(:book, title: 'Just a Geek', user:@user, finished:true)
 
     visit '/books'
 
@@ -22,7 +22,7 @@ feature 'Listing Books' do
   end
 
   scenario 'View a book' do
-    FactoryGirl.create(:book, title: 'Redshirts',
+    create(:book, title: 'Redshirts',
                        pages: 314, current_page: 23, user:@user)
 
     visit '/books'
@@ -35,7 +35,7 @@ feature 'Listing Books' do
   end
 
   scenario 'View a kindle book' do
-    FactoryGirl.create(:book, title: 'Redshirts',
+    create(:book, title: 'Redshirts',
                        pages: 300, current_page: 25, user:@user, kindle:true)
 
     visit '/books'
@@ -46,13 +46,12 @@ feature 'Listing Books' do
   end
 
   scenario 'Visit Root Page' do
-    pending
-    FactoryGirl.create(:book, title: 'Redshirts', pages: 314, current_page: 23, updated_at: Date.today)
-    FactoryGirl.create(:book, title: 'Old Mans War', pages: 310, current_page: 0, updated_at: Date.yesterday)
+    create(:book, title: 'Redshirts', pages: 314, current_page: 23, updated_at: Date.today, user: @user)
+    create(:book, title: 'Old Mans War', pages: 310, current_page: 0, updated_at: Date.yesterday, user: @user)
 
     visit '/'
 
-    expect(page).to have_content('314')
+    #Should redirect to most recently updated book
     expect(page).to have_content('Redshirts')
     expect(page).to have_content('23')
   end

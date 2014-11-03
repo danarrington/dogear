@@ -49,4 +49,14 @@ describe Book do
       expect(book.adjusted_current_page).to eq 150 #50% of 300 is 150
     end
   end
+
+  context 'that is finished' do
+    subject(:book) {create(:book, started_at: 50.days.ago+1.hour, current_page: 300, pages: 300, finished: true)}
+    let!(:last_bookmark) {create(:bookmark, book: book, page: 300, created_at: 40.days.ago)}
+
+    it 'should pass' do
+      expect(book.pace).to eq 30
+    end
+
+  end
 end

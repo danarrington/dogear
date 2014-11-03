@@ -9,7 +9,8 @@ class Book < ActiveRecord::Base
   validates :user, presence: true
 
   def pace
-    days = ((Time.now.utc - started_at)/1.day).ceil.to_f
+    last_day = finished? ? bookmarks.last.created_at : Time.now.utc
+    days = ((last_day - started_at)/1.day).ceil.to_f
     (adjusted_current_page/days).round(1)
   end
 
