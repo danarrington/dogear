@@ -66,4 +66,5 @@ Dogear::Application.routes.draw do
   patch 'books/:id/finish' => 'books#finish', :as => :finish_book
   get '/signin' => 'sessions#new', :as => :sign_in
   post '/signin' => 'sessions#create'
+  post '/temporize' => 'home#temporize'
 end
