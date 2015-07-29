@@ -38,6 +38,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @graph_data = @book.bookmarks.map { |b| [b.created_at , b.page]}
     render @book.finished? ? :show_finished : :show
   end
 
