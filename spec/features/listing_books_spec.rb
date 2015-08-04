@@ -9,7 +9,8 @@ feature 'Listing Books' do
   scenario 'List all books' do
 
     create(:book, title: 'Redshirts', user:@user)
-    create(:book, title: 'Just a Geek', user:@user, finished:true)
+    book2 = create(:book, title: 'Just a Geek', user:@user, finished:true)
+    create(:bookmark, book: book2)
 
     visit '/books'
 

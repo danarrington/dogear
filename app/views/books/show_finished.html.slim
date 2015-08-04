@@ -22,15 +22,9 @@
           = (@book.updated_at.utc.to_date - @book.started_at.utc.to_date).to_i
         .stat-word days to read
 
-- if @book.updated_at > 5.minutes.ago
-  .row
-    .std-col
-      hr
-      = form_for(@book, url: finish_book_path, method: 'patch') do
-        button.btn.btn-danger.btn-lg type="submit" Finish
-
-
-.row
   .std-col.graphs
     h3 History
     = line_chart @graph_data
+    hr
+    = form_for(@book, url: reopen_book_path, method: 'patch') do
+      button.btn.btn-danger.btn-lg type="submit" Re-Open

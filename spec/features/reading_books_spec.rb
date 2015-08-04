@@ -33,4 +33,19 @@ feature 'Reading Books' do
     #click_link 'DogEar'
     #expect()
   end
+
+  scenario 'Re-open a book' do
+    visit '/'
+    fill_in 'book_current_page', with: 53
+    click_button 'Submit'
+
+    click_button 'Finish' #whoops, didn't mean to finish it
+
+    click_button 'Re-Open'
+
+    expect(page).to have_content('days in')
+    expect(page).to have_content('Submit')
+
+  end
+
 end

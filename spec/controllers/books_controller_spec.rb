@@ -98,8 +98,25 @@ describe BooksController do
       book.reload
       expect(book.finished).to eq true
     end
+
     it 'redirects to show' do
       patch :finish, id: book
+      expect(response).to redirect_to book
+    end
+  end
+
+  describe 'PATCH #reopen' do
+    let(:book) { create(:book, finished: true)}
+
+    it 'sets finished to false' do
+      patch :reopen, id: book
+
+      book.reload
+      expect(book.finished).to eq false
+    end
+
+    it 'redirects to show' do
+      patch :reopen, id: book
       expect(response).to redirect_to book
     end
   end

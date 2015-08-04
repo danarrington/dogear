@@ -1,98 +1,26 @@
-- Edit a book
-- Log out
-  - Destroy auth token from cookie
-- Style login page (even just a little)
+xShould be able to re-open a finished book
 
-Stats Ideas
-x Total Pages
-x Total Books
-# Monthly/weekly stats?  Best month/week
-# last 4 weeks?
-
-Little things
-- when adding book make pages a number field
-- focus on form pages when navigating to them
-x tests always pass
-- favicon
-
-Dates
-- Set a timezone to pacific
-- Dates currently displayed in utc, show in pacific.
-- Finished is updated_at, should be bookmarks.last.created_at
-
-
------------ DONE ------------
-
-x Fix historical pace on main page
-
-x Remember me
-  x Rake task to generate tokens for existing users
-x Update rails readme
-
-xFinishing Books
-x After 'reading' show finish button which finishes a book
-x Make the finish button actually work
-x Make finished view
-x Add a new 'finished books' list to main page
-
-x Fix utc issue breaking tests
-
-Kindle Books
-x Add kindle boolean to book
-x Kindle books should display calculated page info
-x Kindle books should show percent after and a percent sign in the read box as placeholder
-x Total stats should reflect calculated pages not percent pages
-- Add explanation of kindle checkbox on new book page (ie, put in the total pages not 100)Books page should let you create a book
-
-xBooks page should list all books
-xClicking on a book should take you to the show page
-
-xBootstrap
-xGithub
-xHeroku
-
-xShow page should have a read button
-xRead button should take you to read page
-xReading should update current page
-
-xrename 'name' to title
-
-Validation
-xRequire Title
-xRequire pages
-
-Bookmarks
-x Add Dogear class as reference
-x Gets created on read
-
-Stats
-x Display stats below read
-x Started, pace, finish date
-? Show bookmarks table
-? On update, redirect to stats with anchor
-
-All Stats
-- Have a page with all stats
-- Books read, pages read, pages read/week, best week etc.
-
-User stuff
-x Creating a book assigns it to current user
-x Signing up signs you in
-x Conditional sign up/sign in in nav bar
-x Only list current users books
-- Remember me
-- If not signed in maybe show like a 'total books, total pages' type stats?
-
-Style all books page
-Convert old erb templates to slim
-Way to finish books.  Open/closed books
-
-
-
-
-----old line----
 -Show page should have an edit button
 -Edit button should take you to edit page
 -Should be able to change title, pages, current page on edit page
 
+-Display notifications when milestones reached.  ie: you've read 10,000 pages
 
+==== Done/old ==== 
+
++Books page should let you create a book
++Books page should list all books
++Clicking on a book should take you to the show page
+
++Bootstrap
++Github
++Heroku
+
++Show page should have a read button
++Read button should take you to read page
++Reading should update current page
+
+
++Home page should show most recently read book
+-Home page should have a textbox for reading
+-Reading from home page should update current page on home page

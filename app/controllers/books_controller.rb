@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :read, :finish]
+  before_action :set_book, only: [:show, :read, :finish, :reopen]
 
   def entry
     @recently_read_book = Book.order('updated_at').last
@@ -44,6 +44,12 @@ class BooksController < ApplicationController
 
   def finish
     @book.finished = true
+    @book.save
+    redirect_to @book
+  end
+
+  def reopen
+    @book.finished = false
     @book.save
     redirect_to @book
   end

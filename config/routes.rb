@@ -3,6 +3,16 @@ Dogear::Application.routes.draw do
   get "users/new"
   get "users/create"
   get "users/show"
+
+  root :to => 'home#index'
+  resources :books
+  resources :users
+
+  patch 'books/:id/finish' => 'books#finish', :as => :finish_book
+  patch 'books/:id/reopen' => 'books#reopen', :as => :reopen_book
+  get '/signin' => 'sessions#new', :as => :sign_in
+  post '/signin' => 'sessions#create'
+  post '/temporize' => 'home#temporize'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -59,12 +69,4 @@ Dogear::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-  root :to => 'home#index'
-  resources :books
-  resources :users
-
-  patch 'books/:id/finish' => 'books#finish', :as => :finish_book
-  get '/signin' => 'sessions#new', :as => :sign_in
-  post '/signin' => 'sessions#create'
-  post '/temporize' => 'home#temporize'
 end
