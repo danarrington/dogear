@@ -22,6 +22,17 @@ describe Book do
     it 'calculates days discreetly' do
       expect(book.pace).to eq 10
     end
+
+    it 'calculates days_reading discreetly' do
+      expect(book.days_reading).to eq 1
+    end
+  end
+
+  context 'that was just started' do
+    subject(:book) {create(:book, started_at: 1.hour.ago, current_page: 10, pages: 100, kindle:false)}
+    it 'calculates finish date discreetly' do
+      expect(book.finish_date).to eq 9.days.from_now.to_date
+    end
   end
 
   context 'that is not a kindle book' do

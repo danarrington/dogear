@@ -24,11 +24,11 @@
         .stat
           .stat-number
             = @book.finish_date_days
-          .stat-word days left
+          .stat-word #{'day'.pluralize(@book.finish_date_days)} left
       .stat
         .stat-number
-          = (Time.now.utc.to_date-@book.started_at.to_date).to_i
-        .stat-word days in
+          = @book.days_reading
+        .stat-word #{'day'.pluralize(@book.days_reading)} of reading
 
 - if @book.updated_at > 5.minutes.ago
   .row
@@ -39,7 +39,7 @@
 .row
   .std-col.graphs
     h3 History
-    = line_chart @graph_data
+    = line_chart @graph_data, discreet: true
 
 
 

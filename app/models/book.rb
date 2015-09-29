@@ -15,7 +15,15 @@ class Book < ActiveRecord::Base
   end
 
   def finish_date
-    started_at.to_date + (pages.to_f/adjusted_current_page*(Time.now.utc.to_date-started_at.to_date)).to_i if current_page > 0
+    return nil if current_page == 0
+
+    pages_left = pages - adjusted_current_page  
+    days_left = pages_left.to_f/pace
+    Date.today + days_left.days
+  end
+
+  def days_reading
+    (Time.now.utc.to_date - (started_at.to_date-1.day)).to_i
   end
 
   def finish_date_days

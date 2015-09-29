@@ -1,4 +1,5 @@
-xShould be able to re-open a finished book
+- For graph group by day
+  - Also, always show dates, not times
 
 -Show page should have an edit button
 -Edit button should take you to edit page
@@ -7,6 +8,10 @@ xShould be able to re-open a finished book
 -Display notifications when milestones reached.  ie: you've read 10,000 pages
 
 ==== Done/old ==== 
+
+x Double check math discreetness
+  x If you create a new book and are at 5%, it should take 20 days
+x Should be able to re-open a finished book
 
 +Books page should let you create a book
 +Books page should list all books

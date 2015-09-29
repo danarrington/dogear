@@ -43,7 +43,7 @@ feature 'Reading Books' do
 
     click_button 'Re-Open'
 
-    expect(page).to have_content('days in')
+    expect(page).to have_content('days of reading')
     expect(page).to have_content('Submit')
 
   end
