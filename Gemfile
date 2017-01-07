@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
-gem 'rails', '4.0.0'
+ruby '2.3.1'
+gem 'rails', '5.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -46,7 +46,7 @@ group :test, :development do
   gem 'sqlite3'
   gem 'guard-rspec'
   gem 'terminal-notifier-guard'
-  gem 'spork-rails'
+  #gem 'spork-rails'
   gem 'guard-spork'
 end
 
