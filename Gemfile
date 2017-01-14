@@ -44,10 +44,10 @@ gem 'chartkick', '~> 1.3'
 group :test, :development do
   gem 'rspec-rails', "~> 2.13.2"
   gem 'sqlite3'
-  gem 'guard-rspec'
-  gem 'terminal-notifier-guard'
+  #gem 'guard-rspec'
+  #gem 'terminal-notifier-guard'
   #gem 'spork-rails'
-  gem 'guard-spork'
+  #gem 'guard-spork'
 end
 
 group :test do
