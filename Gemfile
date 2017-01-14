@@ -42,22 +42,20 @@ gem 'chartkick', '~> 1.3'
 # gem 'debugger'
 
 group :test, :development do
-  gem 'rspec-rails', "~> 2.13.2"
+  gem 'rspec-rails'
   gem 'sqlite3'
-  #gem 'guard-rspec'
-  #gem 'terminal-notifier-guard'
-  #gem 'spork-rails'
-  #gem 'guard-spork'
+  gem 'test-unit'
 end
 
 group :test do
-  gem 'capybara', "2.0.2"
-  gem 'factory_girl_rails', '4.2.1'
-  gem 'factory_girl', '4.2.0'
-  gem 'faker', '~> 1.1.2'
-  gem 'database_cleaner', '~> 1.0.1'
-  gem 'launchy', '~> 2.3.0'
-  gem 'selenium-webdriver', '~> 2.35.1'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+  gem 'rspec-its'
+  gem 'rails-controller-testing'
 end
 
 group :production do
