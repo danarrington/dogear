@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Book do
   it 'is valid with title, pages and current_page' do

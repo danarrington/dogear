@@ -56,6 +56,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'rspec-its'
   gem 'rails-controller-testing'
+  gem 'rspec-collection_matchers'
 end
 
 group :production do
