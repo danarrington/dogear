@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,28 +12,30 @@
 
 ActiveRecord::Schema.define(version: 20140812150545) do
 
-  create_table "bookmarks", force: true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
     t.integer  "book_id"
     t.integer  "page"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "books", force: true do |t|
+  create_table "books", force: :cascade do |t|
     t.string   "title"
     t.integer  "pages"
     t.integer  "current_page"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.datetime "started_at"
     t.integer  "user_id"
     t.boolean  "finished",     default: false
     t.boolean  "kindle",       default: false
+    t.index ["user_id"], name: "index_books_on_user_id", using: :btree
   end
 
-  add_index "books", ["user_id"], name: "index_books_on_user_id"
-
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"

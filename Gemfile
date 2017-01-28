@@ -41,13 +41,15 @@ gem 'chartkick', '~> 1.3'
 # To use debugger
 # gem 'debugger'
 
+gem 'pg'
+
 group :test, :development do
   gem 'rspec-rails'
-  gem 'sqlite3'
   gem 'test-unit'
 end
 
 group :test do
+  gem 'sqlite3'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'faker'
@@ -60,6 +62,5 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
