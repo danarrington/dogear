@@ -16,4 +16,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    sign_out_user
+    flash[:notice] = "Signed out successfully."
+    redirect_to action: :new
+  end
+
 end

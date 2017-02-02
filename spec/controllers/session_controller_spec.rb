@@ -34,4 +34,16 @@ describe SessionsController do
       end
     end
   end
+
+
+  describe 'DELETE #destroy' do
+    let (:user) { create(:user, email: 'dan@gmail.com') }
+    before { set_user_token(user) }
+
+    it 'deletes the auth token cookie' do
+      delete :destroy
+
+      expect(cookies[:auth_token]).to be_nil
+    end
+  end
 end

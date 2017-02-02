@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :sign_in_user
+
+  def sign_out_user
+    cookies[:auth_token] = nil
+  end
+  helper_method :sign_out_user
 end
