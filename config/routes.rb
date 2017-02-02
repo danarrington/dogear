@@ -7,10 +7,9 @@ Rails.application.routes.draw do
   root :to => 'home#index'
   resources :books
   resources :users
+  resource :session, only: [:new, :create, :destroy]
 
   patch 'books/:id/finish' => 'books#finish', :as => :finish_book
   patch 'books/:id/reopen' => 'books#reopen', :as => :reopen_book
-  get '/signin' => 'sessions#new', :as => :sign_in
-  post '/signin' => 'sessions#create'
   post '/temporize' => 'home#temporize'
 end

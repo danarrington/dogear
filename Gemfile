@@ -21,13 +21,12 @@ end
 
 gem 'jquery-rails'
 gem 'bootstrap-sass'
-#gem 'heroku'
 gem 'slim-rails'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1'
 
-gem 'chartkick', '~> 1.3'
+gem 'chartkick', '~> 2.2'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

@@ -6,7 +6,7 @@ describe BooksController do
     let!(:user) {set_user_token(create(:user))}
     subject(:book) {Book.first}
     before :each do
-      post :create, book: attributes_for(:book)
+      post :create, params: { book: attributes_for(:book) }
     end
 
     its(:started_at) {should eq Date.today}
@@ -19,7 +19,7 @@ describe BooksController do
   describe 'GET #show' do
     before :each do
       @book = create(:book, finished: finished)
-      get :show, id: @book
+      get :show, params: { id: @book.id }
     end
 
     context 'with an open book' do
@@ -44,7 +44,10 @@ describe BooksController do
       it 'saves a new bookmark to the database' do
         book = create(:book)
         expect{
-          patch :update, id: book, book: attributes_for(:book)
+          patch :update, params: {
+            id: book.id, 
+            book: attributes_for(:book)
+          }
         }.to change(Bookmark, :count).by 1
       end
     end
@@ -53,7 +56,10 @@ describe BooksController do
         pending 'not sure how to process validation yet'
         book = create(:book)
         expect {
-          patch :update, id: book, book: attributes_for(:invalid_book)
+          patch :update, params: {
+            id: book.id, 
+            book: attributes_for(:invalid_book)
+          }
         }.to_not change(Bookmark, :count)
       end
     end
@@ -93,14 +99,14 @@ describe BooksController do
     let(:book) { create(:book, finished: false)}
 
     it 'sets finished to true' do
-      patch :finish, id: book
+      patch :finish, params: { id: book.id }
 
       book.reload
       expect(book.finished).to eq true
     end
 
     it 'redirects to show' do
-      patch :finish, id: book
+      patch :finish, params: { id: book.id }
       expect(response).to redirect_to book
     end
   end
@@ -109,14 +115,14 @@ describe BooksController do
     let(:book) { create(:book, finished: true)}
 
     it 'sets finished to false' do
-      patch :reopen, id: book
+      patch :reopen, params: { id: book }
 
       book.reload
       expect(book.finished).to eq false
     end
 
     it 'redirects to show' do
-      patch :reopen, id: book
+      patch :reopen, params: { id: book.id }
       expect(response).to redirect_to book
     end
   end
