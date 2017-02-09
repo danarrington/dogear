@@ -34,7 +34,8 @@
   .row
     .std-col
       hr
-      = form_for(@book, url: finish_book_path, method: 'patch') do
+      = form_for(@book) do |f|
+        = f.hidden_field :finished, value: true
         button.btn.btn-danger.btn-lg type="submit" Finish
 .row
   .std-col.graphs

@@ -26,5 +26,6 @@
     h3 History
     = line_chart @graph_data
     hr
-    = form_for(@book, url: reopen_book_path, method: 'patch') do
+    = form_for(@book) do |f|
+      = f.hidden_field :finished, value: false
       button.btn.btn-danger.btn-lg type="submit" Re-Open

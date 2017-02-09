@@ -40,24 +40,30 @@ describe BooksController do
   end
 
   describe 'POST #update' do
+    let(:book) { create(:book) }
     context 'with a valid page number' do
       it 'saves a new bookmark to the database' do
-        book = create(:book)
         expect{
           patch :update, params: {
-            id: book.id, 
+            id: book.id,
             book: attributes_for(:book)
           }
         }.to change(Bookmark, :count).by 1
+      end
+      it 'can mark a book as finished' do
+        patch :update, params: {
+          id: book.id,
+          book: attributes_for(:book, finished: true)
+        }
+        expect(book.reload.finished).to eq true
       end
     end
     context 'without a valid page number' do
       it 'does not save a new bookmark to the database' do
         pending 'not sure how to process validation yet'
-        book = create(:book)
         expect {
           patch :update, params: {
-            id: book.id, 
+            id: book.id,
             book: attributes_for(:invalid_book)
           }
         }.to_not change(Bookmark, :count)
@@ -92,38 +98,6 @@ describe BooksController do
           expect(assigns(:finished_books)).to match_array([@closed_book])
         end
       end
-    end
-  end
-
-  describe 'POST #finish' do
-    let(:book) { create(:book, finished: false)}
-
-    it 'sets finished to true' do
-      patch :finish, params: { id: book.id }
-
-      book.reload
-      expect(book.finished).to eq true
-    end
-
-    it 'redirects to show' do
-      patch :finish, params: { id: book.id }
-      expect(response).to redirect_to book
-    end
-  end
-
-  describe 'PATCH #reopen' do
-    let(:book) { create(:book, finished: true)}
-
-    it 'sets finished to false' do
-      patch :reopen, params: { id: book }
-
-      book.reload
-      expect(book.finished).to eq false
-    end
-
-    it 'redirects to show' do
-      patch :reopen, params: { id: book.id }
-      expect(response).to redirect_to book
     end
   end
 end

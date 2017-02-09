@@ -42,18 +42,6 @@ class BooksController < ApplicationController
     render @book.finished? ? :show_finished : :show
   end
 
-  def finish
-    @book.finished = true
-    @book.save
-    redirect_to @book
-  end
-
-  def reopen
-    @book.finished = false
-    @book.save
-    redirect_to @book
-  end
-
   def update
     @book = Book.find(params[:id])
     @book.update_attributes(book_params)
@@ -63,7 +51,7 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :pages, :current_page, :kindle)
+    params.require(:book).permit(:title, :pages, :current_page, :kindle, :finished)
   end
 
   def set_book

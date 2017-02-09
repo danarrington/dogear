@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Reading Books' do
   background :each do
@@ -19,6 +19,7 @@ feature 'Reading Books' do
 
     expect(page).to have_content('25')
   end
+
   scenario 'Finish a Book' do
     visit '/'
     expect(page).to_not have_content('Finish')
@@ -29,9 +30,6 @@ feature 'Reading Books' do
 
     expect(page).to have_content('finished')
     expect(page).to_not have_field('book_current_page')
-
-    #click_link 'DogEar'
-    #expect()
   end
 
   scenario 'Re-open a book' do
