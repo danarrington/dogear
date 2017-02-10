@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :read, :finish, :reopen]
+  before_action :authenticate
 
   def entry
     @recently_read_book = Book.order('updated_at').last
@@ -56,6 +57,10 @@ class BooksController < ApplicationController
 
   def set_book
     @book = Book.find(params[:id])
+  end
+
+  def authenticate
+    redirect_to root_path unless current_user
   end
 
 end

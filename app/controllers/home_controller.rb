@@ -6,10 +6,5 @@ class HomeController < ApplicationController
     else
       render :index
     end
-
-  end
-
-  def temporize
-    render :text => 'hello'
   end
 end
