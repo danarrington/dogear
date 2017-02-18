@@ -17,6 +17,7 @@ describe BooksController do
   end
 
   describe 'GET #show' do
+    let!(:user) {set_user_token(create(:user))}
     before :each do
       @book = create(:book, finished: finished)
       get :show, params: { id: @book.id }
@@ -40,6 +41,7 @@ describe BooksController do
   end
 
   describe 'POST #update' do
+    let!(:user) {set_user_token(create(:user))}
     let(:book) { create(:book) }
     context 'with a valid page number' do
       it 'saves a new bookmark to the database' do
