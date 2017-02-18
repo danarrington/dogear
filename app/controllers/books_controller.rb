@@ -39,8 +39,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @graph_data = @book.bookmarks.group_by_day(:created_at, series: false).
-      maximum(:page).map { |b| b }
+    @graph_data = @book.bookmark_graph_data
     render @book.finished? ? :show_finished : :show
   end
 

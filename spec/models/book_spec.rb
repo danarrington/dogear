@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 describe Book do
+  before { Timecop.freeze }
+  after { Timecop.return }
+
   it 'is valid with title, pages and current_page' do
     expect(build(:book)).to be_valid
   end
@@ -68,6 +71,17 @@ describe Book do
     it 'should pass' do
       expect(book.pace).to eq 30
     end
+  end
 
+  describe '#bookmark_graph_data' do
+    context 'with multiple bookmarks on the same day' do
+      subject(:book) {create(:book)}
+      let!(:earlier_bookmark) {create(:bookmark, book: book, page: 5, created_at: 4.hours.ago)}
+      let!(:later_bookmark) {create(:bookmark, book: book, page: 15, created_at: 2.hours.ago)}
+      it 'only returns the last bookmark' do
+        expect(subject.bookmark_graph_data.count).to eq 1
+        expect(subject.bookmark_graph_data.first[1]).to eq 15
+      end
+    end
   end
 end

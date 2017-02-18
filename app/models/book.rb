@@ -17,7 +17,7 @@ class Book < ApplicationRecord
   def finish_date
     return nil if current_page == 0
 
-    pages_left = pages - adjusted_current_page  
+    pages_left = pages - adjusted_current_page
     days_left = pages_left.to_f/pace
     Date.today + days_left.days
   end
@@ -44,5 +44,9 @@ class Book < ApplicationRecord
 
   def finished_short
     bookmarks.last.created_at.utc.to_date.strftime('%b %d')
+  end
+
+  def bookmark_graph_data
+    bookmarks.group_by_day(:created_at, series: false).maximum(:page)
   end
 end

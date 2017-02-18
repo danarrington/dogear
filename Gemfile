@@ -35,16 +35,17 @@ group :test, :development do
 end
 
 group :test do
-  gem 'sqlite3'
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'database_cleaner'
   gem 'launchy'
-  gem 'selenium-webdriver'
-  gem 'rspec-its'
   gem 'rails-controller-testing'
   gem 'rspec-collection_matchers'
+  gem 'rspec-its'
+  gem 'selenium-webdriver'
+  gem 'sqlite3'
+  gem 'timecop'
 end
 
 group :production do
