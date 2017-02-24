@@ -48,6 +48,7 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.3)
+    byebug (9.0.6)
     capybara (2.11.0)
       addressable
       mime-types (>= 1.16)
@@ -207,6 +208,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1)
   bootstrap-sass
+  byebug
   capybara
   chartkick (~> 2.2)
   database_cleaner

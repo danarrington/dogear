@@ -9,9 +9,9 @@ x Move to DO
  - Signout message
  . Right align (do with redesign)
  - Better sign in failure
-- Layout erb->slim
-- Remove coffeescript
-- Select max on day for graph
+x Layout erb->slim
+x Remove coffeescript
+x Select max on day for graph
 - Reading a book should post new to the bookmark route
 x Restful user routes
 - Book spec has some time issues

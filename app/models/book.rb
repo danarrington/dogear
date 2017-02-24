@@ -19,7 +19,7 @@ class Book < ApplicationRecord
 
     pages_left = pages - adjusted_current_page
     days_left = pages_left.to_f/pace
-    Date.today + days_left.days
+    Date.current.in_time_zone + days_left.days
   end
 
   def days_reading

@@ -20,3 +20,4 @@ pickle-email-*.html
 /.idea/*
 .idea/
 *.DS_STORE
+.byebug_history

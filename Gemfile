@@ -34,6 +34,7 @@ group :test, :development do
 end
 
 group :test do
+  gem 'byebug'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl_rails'

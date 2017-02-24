@@ -32,7 +32,9 @@ describe Book do
   end
 
   context 'that was just started' do
-    subject(:book) {create(:book, started_at: 1.hour.ago, current_page: 10, pages: 100, kindle:false)}
+    subject(:book) do
+      create(:book, started_at: 1.hour.ago, current_page: 10, pages: 100, kindle: false)
+    end
     it 'calculates finish date discreetly' do
       expect(book.finish_date).to eq 9.days.from_now.to_date
     end
