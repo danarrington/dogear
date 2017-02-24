@@ -1,3 +1,24 @@
+=== 2017 ===
+x Rails 5
+x Move to DO
+- Better auth
+ x What do we use?
+ x Session as resource
+ x Signout spec
+ x Add signout link
+ - Signout message
+ . Right align (do with redesign)
+ - Better sign in failure
+- Layout erb->slim
+- Remove coffeescript
+- Select max on day for graph
+- Reading a book should post new to the bookmark route
+x Restful user routes
+- Book spec has some time issues
+- Do some auth on the books (check to see that you own the book)
+
+
+=== Old ===
 - For graph group by day
   - Also, always show dates, not times
 
@@ -7,7 +28,7 @@
 
 -Display notifications when milestones reached.  ie: you've read 10,000 pages
 
-==== Done/old ==== 
+==== Done/old ====
 
 x Double check math discreetness
   x If you create a new book and are at 5%, it should take 20 days
