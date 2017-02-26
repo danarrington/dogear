@@ -39,6 +39,11 @@ describe Book do
     it 'calculates finish date discreetly' do
       expect(book.finish_date).to eq 9.days.from_now.to_date
     end
+
+    it 'calculates finish date days' do
+      expect(book.finish_date_days).to eq 9
+    end
+
   end
 
   context 'that is not a kindle book' do

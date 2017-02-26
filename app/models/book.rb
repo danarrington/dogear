@@ -27,7 +27,7 @@ class Book < ApplicationRecord
   end
 
   def finish_date_days
-    (finish_date - Time.now.utc.to_date).round if finish_date
+    (finish_date.to_date - Date.current.in_time_zone.to_date).round if finish_date
   end
 
   def adjusted_current_page
