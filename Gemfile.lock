@@ -59,6 +59,10 @@ GEM
     chartkick (2.2.2)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
     database_cleaner (1.5.3)
     diff-lcs (1.2.5)
@@ -211,6 +215,7 @@ DEPENDENCIES
   byebug
   capybara
   chartkick (~> 2.2)
+  coffee-script
   database_cleaner
   factory_girl_rails
   faker
@@ -236,4 +241,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.13.7
+   1.14.6

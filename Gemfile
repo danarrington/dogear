@@ -46,6 +46,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'sqlite3'
   gem 'timecop'
+  gem 'coffee-script' #hack to get assets on dokku working
 end
 
 group :production do
