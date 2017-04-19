@@ -10,6 +10,7 @@ gem 'rails', '5.0.0'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'coffee-script' #hack to get assets on dokku working
   gem 'sass-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -46,7 +47,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'sqlite3'
   gem 'timecop'
-  gem 'coffee-script' #hack to get assets on dokku working
 end
 
 group :production do
