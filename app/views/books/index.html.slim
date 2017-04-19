@@ -17,7 +17,11 @@
 .row
   .std-col.finished-book-list id="finished-books"
     h2 Finished Books
+    - year = nil
     - @finished_books.each do |book|
+      - if year != book.updated_at.year
+        - year = book.updated_at.year
+        h2.year = year
       div.book
         =link_to book.title, book
         .finished-book-stats
