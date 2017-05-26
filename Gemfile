@@ -3,31 +3,20 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 gem 'rails', '5.0.0'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'bcrypt', '~> 3.1' # To use ActiveModel has_secure_password
+gem 'bootstrap-sass'
+gem 'chartkick', '~> 2.2'
+gem 'groupdate'
+gem 'jquery-rails'
+gem 'pg'
+gem 'sentry-raven', '~> 2.4'
+gem 'slim-rails'
 
-
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'coffee-script' #hack to get assets on dokku working
   gem 'sass-rails'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier'
 end
-
-gem 'jquery-rails'
-gem 'bootstrap-sass'
-gem 'slim-rails'
-
-# To use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1'
-gem 'chartkick', '~> 2.2'
-gem 'groupdate'
-gem 'pg'
 
 group :test, :development do
   gem 'rspec-rails'

@@ -1,4 +1,10 @@
 === 2017 ===
+4/19
+ x Year delimeters
+ - Exceptions
+  - Move key to dotenv or similar
+  n js tracking?
+
 x Rails 5
 x Move to DO
 - Better auth

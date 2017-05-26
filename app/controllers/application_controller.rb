@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_action :set_raven_context #for sentry logging
 
   def current_user
     @current_user || User.find_by_auth_token(cookies[:auth_token]) if cookies[:auth_token]
@@ -19,4 +20,10 @@ class ApplicationController < ActionController::Base
     cookies[:auth_token] = nil
   end
   helper_method :sign_out_user
+
+  def set_raven_context
+    if current_user
+      Raven.user_context(id: current_user.id) # or anything else in session
+    end
+  end
 end
