@@ -8,6 +8,6 @@ describe Bookmark do
   end
 
   it 'is invalid without page' do
-    expect(build(:bookmark, :page => nil)).to be_invalid
+    expect(build(:bookmark, page: nil)).to be_invalid
   end
 end

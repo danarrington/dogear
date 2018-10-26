@@ -16,7 +16,7 @@ class Book < ApplicationRecord
   end
 
   def finish_date
-    return nil if current_page == 0
+    return nil if current_page.zero?
 
     pages_left = pages - adjusted_current_page
     days_left = pages_left.to_f / pace

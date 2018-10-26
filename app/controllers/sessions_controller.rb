@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:signin][:email].strip.downcase)
 
-    if user && user.authenticate(params[:signin][:password])
+    if user&.authenticate(params[:signin][:password])
       sign_in_user(user, params[:signin][:remember_me])
       redirect_to root_url, notice: 'Signed in successfully'
     else
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out_user
-    flash[:notice] = "Signed out successfully."
+    flash[:notice] = 'Signed out successfully.'
     redirect_to action: :new
   end
 end

@@ -12,11 +12,6 @@ Lint/Loop:
     - 'app/models/user.rb'
 
 # Offense count: 2
-Lint/ParenthesesAsGroupedExpression:
-  Exclude:
-    - 'spec/controllers/session_controller_spec.rb'
-
-# Offense count: 2
 Lint/UselessAssignment:
   Exclude:
     - 'spec/controllers/books_controller_spec.rb'
@@ -55,87 +50,10 @@ Style/GuardClause:
     - 'app/controllers/application_controller.rb'
 
 # Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
-# SupportedStyles: ruby19, hash_rockets, no_mixed_keys, ruby19_no_mixed_keys
-Style/HashSyntax:
-  Exclude:
-    - 'config/routes.rb'
-    - 'spec/models/bookmark_spec.rb'
-
-# Offense count: 2
 Style/MixinUsage:
   Exclude:
     - 'bin/setup'
     - 'bin/update'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: Whitelist.
-# Whitelist: be, be_a, be_an, be_between, be_falsey, be_kind_of, be_instance_of, be_truthy, be_within, eq, eql, end_with, include, match, raise_error, respond_to, start_with
-Style/NestedParenthesizedCalls:
-  Exclude:
-    - 'spec/controllers/books_controller_spec.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: Strict.
-Style/NumericLiterals:
-  MinDigits: 15
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: AutoCorrect, EnforcedStyle, IgnoredMethods.
-# SupportedStyles: predicate, comparison
-Style/NumericPredicate:
-  Exclude:
-    - 'spec/**/*'
-    - 'app/models/book.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: PreferredDelimiters.
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - 'config/spring.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/RedundantSelf:
-  Exclude:
-    - 'app/models/user.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: ConvertCodeThatCanStartToReturnNil, Whitelist.
-# Whitelist: present?, blank?, presence, try, try!
-Style/SafeNavigation:
-  Exclude:
-    - 'app/controllers/sessions_controller.rb'
-
-# Offense count: 52
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Exclude:
-    - 'app/controllers/sessions_controller.rb'
-    - 'config/environments/production.rb'
-    - 'config/initializers/groupdate.rb'
-    - 'config/puma.rb'
-    - 'db/schema.rb'
-    - 'spec/factories/books.rb'
-    - 'spec/factories/users.rb'
-    - 'spec/models/user_spec.rb'
-    - 'spec/rails_helper.rb'
-    - 'spec/spec_helper_old.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: MinSize.
-# SupportedStyles: percent, brackets
-Style/SymbolArray:
-  EnforcedStyle: brackets
 
 # Offense count: 51
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.

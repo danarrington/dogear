@@ -104,7 +104,7 @@ describe BooksController do
     end
     context 'with a signed out user' do
       it 'should redirect to root' do
-        expect(get :index).to redirect_to(root_path)
+        expect(get(:index)).to redirect_to(root_path)
       end
     end
   end

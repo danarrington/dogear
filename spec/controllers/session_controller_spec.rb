@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe SessionsController do
   describe 'POST #create' do
-    let (:user) { create(:user, email: 'dan@gmail.com') }
+    let(:user) { create(:user, email: 'dan@gmail.com') }
 
     it 'should sign the user in' do
       post :create, params: { signin: { email: user.email, password: user.password } }
@@ -36,7 +36,7 @@ describe SessionsController do
   end
 
   describe 'DELETE #destroy' do
-    let (:user) { create(:user, email: 'dan@gmail.com') }
+    let(:user) { create(:user, email: 'dan@gmail.com') }
     before { set_user_token(user) }
 
     it 'deletes the auth token cookie' do
