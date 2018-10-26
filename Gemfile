@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
-gem 'rails', '5.0.0'
+ruby '2.5.3'
+gem 'rails', '5.0.2'
 
 gem 'bcrypt', '~> 3.1' # To use ActiveModel has_secure_password
 gem 'bootstrap-sass'
@@ -34,6 +34,8 @@ group :test do
   gem 'rspec-collection_matchers'
   gem 'rspec-its'
   gem 'selenium-webdriver'
+  gem 'spring', '~> 2.0'
+  gem 'spring-commands-rspec', '~> 1.0'
   gem 'sqlite3'
   gem 'timecop'
 end
