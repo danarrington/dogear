@@ -14,8 +14,10 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.where(user: current_user, finished: false).order(updated_at: :desc)
-    @finished_books = Book.where(user: current_user, finished: true).order(updated_at: :desc)
+    @books = Book.where(user: current_user, finished: false)
+                 .order(updated_at: :desc)
+    @finished_books = Book.where(user: current_user, finished: true)
+                          .order(updated_at: :desc)
     @stats = {
       total_pages: Stats.total_pages(current_user),
       finished_books: Stats.finished_books(current_user)

@@ -7,19 +7,25 @@ describe SessionsController do
     let(:user) { create(:user, email: 'dan@gmail.com') }
 
     it 'should sign the user in' do
-      post :create, params: { signin: { email: user.email, password: user.password } }
+      post :create, params: {
+        signin: { email: user.email, password: user.password }
+      }
 
       expect(cookies[:auth_token]).to_not be_nil
     end
 
     it 'should ignore whitespace in email' do
-      post :create, params: { signin: { email: "#{user.email} ", password: user.password } }
+      post :create, params: {
+        signin: { email: "#{user.email} ", password: user.password }
+      }
 
       expect(cookies[:auth_token]).to_not be_nil
     end
 
     it 'should ignore email case' do
-      post :create, params: { signin: { email: 'DAN@gmail.com', password: user.password } }
+      post :create, params: {
+        signin: { email: 'DAN@gmail.com', password: user.password }
+      }
 
       expect(cookies[:auth_token]).to_not be_nil
     end

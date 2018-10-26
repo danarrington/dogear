@@ -48,8 +48,10 @@ feature 'Listing Books' do
   end
 
   scenario 'Visit Root Page' do
-    create(:book, title: 'Redshirts', pages: 314, current_page: 23, updated_at: Date.today, user: @user)
-    create(:book, title: 'Old Mans War', pages: 310, current_page: 0, updated_at: Date.yesterday, user: @user)
+    create(:book, title: 'Redshirts', pages: 314, current_page: 23,
+                  updated_at: Date.today, user: @user)
+    create(:book, title: 'Old Mans War', pages: 310, current_page: 0,
+                  updated_at: Date.yesterday, user: @user)
 
     visit '/'
 

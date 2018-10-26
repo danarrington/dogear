@@ -7,7 +7,8 @@ feature 'Reading Books' do
     @user = create(:user)
     sign_in @user
 
-    FactoryGirl.create(:book, title: 'Redshirts', current_page: 2, user: @user, updated_at: 1.day.ago)
+    FactoryGirl.create(:book, title: 'Redshirts', current_page: 2, user: @user,
+                              updated_at: 1.day.ago)
   end
   scenario 'Read a Book' do
     visit '/books/'

@@ -83,7 +83,7 @@ describe BooksController do
       it 'only lists signed in users books' do
         user_book = create(:book, user: @user)
         other_user = create(:user)
-        other_book = create(:book, user: other_user)
+        create(:book, user: other_user)
 
         get :index
         expect(assigns(:books)).to match_array([user_book])
