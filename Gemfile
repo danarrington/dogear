@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.5.3'
-gem 'rails', '5.0.2'
+gem 'rails', '5.2.1'
 
 gem 'bcrypt', '~> 3.1' # To use ActiveModel has_secure_password
 gem 'bootstrap-sass'
