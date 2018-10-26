@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe User do
@@ -21,17 +23,20 @@ describe User do
       u = User.create(
         name: "steve",
         password: "hunter2",
-        password_confirmation: "hunter")
+        password_confirmation: "hunter"
+      )
 
       expect(u).to_not be_valid
     end
   end
   describe "authentication" do
-    let(:user) { User.create(
-      name: "steve",
-      password: "hunter2",
-      password_confirmation: "hunter2")
-    }
+    let(:user) do
+      User.create(
+        name: "steve",
+        password: "hunter2",
+        password_confirmation: "hunter2"
+      )
+    end
 
     it "authenticates with a correct password" do
       expect(user.authenticate("hunter2")).to be

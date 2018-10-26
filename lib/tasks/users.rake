@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :users do
   desc 'Generate auth tokens for users without one'
   task create_tokens: :environment do

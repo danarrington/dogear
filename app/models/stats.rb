@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Stats
   def self.total_pages(user)
     count = 0

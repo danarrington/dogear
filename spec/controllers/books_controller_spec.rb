@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe BooksController do
@@ -44,12 +46,12 @@ describe BooksController do
     let(:book) { create(:book) }
     context 'with a valid page number' do
       it 'saves a new bookmark to the database' do
-        expect {
+        expect do
           patch :update, params: {
             id: book.id,
             book: attributes_for(:book)
           }
-        }.to change(Bookmark, :count).by 1
+        end.to change(Bookmark, :count).by 1
       end
       it 'can mark a book as finished' do
         patch :update, params: {
@@ -62,12 +64,12 @@ describe BooksController do
     context 'without a valid page number' do
       it 'does not save a new bookmark to the database' do
         pending 'not sure how to process validation yet'
-        expect {
+        expect do
           patch :update, params: {
             id: book.id,
             book: attributes_for(:invalid_book)
           }
-        }.to_not change(Bookmark, :count)
+        end.to_not change(Bookmark, :count)
       end
     end
   end

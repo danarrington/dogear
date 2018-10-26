@@ -6,21 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Layout/MultilineBlockLayout:
-  Exclude:
-    - 'spec/models/user_spec.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: symmetrical, new_line, same_line
-Layout/MultilineMethodCallBraceLayout:
-  Exclude:
-    - 'spec/models/user_spec.rb'
-
 # Offense count: 1
 Lint/Loop:
   Exclude:
@@ -30,12 +15,6 @@ Lint/Loop:
 Lint/ParenthesesAsGroupedExpression:
   Exclude:
     - 'spec/controllers/session_controller_spec.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Lint/ScriptPermission:
-  Exclude:
-    - 'Rakefile'
 
 # Offense count: 2
 Lint/UselessAssignment:
@@ -64,64 +43,9 @@ Style/BlockComments:
   Exclude:
     - 'spec/spec_helper.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, ProceduralMethods, FunctionalMethods, IgnoredMethods.
-# SupportedStyles: line_count_based, semantic, braces_for_chaining
-# ProceduralMethods: benchmark, bm, bmbm, create, each_with_object, measure, new, realtime, tap, with_object
-# FunctionalMethods: let, let!, subject, watch
-# IgnoredMethods: lambda, proc, it
-Style/BlockDelimiters:
-  Exclude:
-    - 'spec/controllers/books_controller_spec.rb'
-    - 'spec/models/user_spec.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: Keywords.
-# Keywords: TODO, FIXME, OPTIMIZE, HACK, REVIEW
-Style/CommentAnnotation:
-  Exclude:
-    - 'Gemfile'
 
 # Offense count: 23
 Style/Documentation:
-  Enabled: false
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty, nil, both
-Style/EmptyElse:
-  Exclude:
-    - 'app/controllers/books_controller.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: compact, expanded
-Style/EmptyMethod:
-  Exclude:
-    - 'app/controllers/sessions_controller.rb'
-    - 'app/controllers/users_controller.rb'
-
-# Offense count: 8
-# Cop supports --auto-correct.
-Style/ExpandPathArguments:
-  Exclude:
-    - 'Rakefile'
-    - 'bin/bundle'
-    - 'bin/setup'
-    - 'bin/update'
-    - 'script/rails'
-    - 'spec/rails_helper.rb'
-    - 'spec/spec_helper_old.rb'
-
-# Offense count: 75
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: when_needed, always, never
-Style/FrozenStringLiteralComment:
   Enabled: false
 
 # Offense count: 1

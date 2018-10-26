@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :read, :finish, :reopen]
   before_action :authenticate
@@ -30,12 +32,10 @@ class BooksController < ApplicationController
     @book.current_page = 0
     @book.user = current_user
 
-    if @book.save
-      flash[:notice] = 'Book has been added'
-      redirect_to @book
-    else
+    return unless @book.save
 
-    end
+    flash[:notice] = 'Book has been added'
+    redirect_to @book
   end
 
   def show
