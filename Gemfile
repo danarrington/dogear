@@ -13,7 +13,7 @@ gem 'sentry-raven', '~> 2.4'
 gem 'slim-rails'
 
 group :assets do
-  gem 'coffee-script' #hack to get assets on dokku working
+  gem 'coffee-script' # hack to get assets on dokku working
   gem 'sass-rails'
   gem 'uglifier'
 end

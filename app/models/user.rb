@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  before_create { generate_token}
+  before_create { generate_token }
   def generate_token
     begin
       self.auth_token = SecureRandom.urlsafe_base64

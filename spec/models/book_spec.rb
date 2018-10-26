@@ -21,7 +21,7 @@ describe Book do
   end
 
   context 'with some reading data' do
-    subject(:book) {create(:book, started_at: 1.hour.ago, current_page: 10, pages: 100, kindle:false)}
+    subject(:book) { create(:book, started_at: 1.hour.ago, current_page: 10, pages: 100, kindle: false) }
     it 'calculates days discreetly' do
       expect(book.pace).to eq 10
     end
@@ -43,21 +43,20 @@ describe Book do
     it 'calculates finish date days' do
       expect(book.finish_date_days).to eq 9
     end
-
   end
 
   context 'that is not a kindle book' do
-    subject(:book)  {create(:book, started_at: 5.days.ago+1.hour, current_page: 100, pages: 300, kindle: false)}
+    subject(:book) { create(:book, started_at: 5.days.ago + 1.hour, current_page: 100, pages: 300, kindle: false) }
 
     its(:pace) { should eq 20 }
 
-    its(:finish_date) {should eq 10.days.from_now.to_date}
+    its(:finish_date) { should eq 10.days.from_now.to_date }
 
-    its(:adjusted_current_page) {should eq 100}
+    its(:adjusted_current_page) { should eq 100 }
   end
 
   context 'that is a kindle book' do
-    subject(:book) {create(:book, started_at: 5.days.ago+1.hour, current_page: 50, pages: 300, kindle: true)}
+    subject(:book) { create(:book, started_at: 5.days.ago + 1.hour, current_page: 50, pages: 300, kindle: true) }
 
     it 'calculates the pace correctly' do
       expect(book.pace).to eq 30
@@ -68,13 +67,13 @@ describe Book do
     end
 
     it 'returns page not percent as adjusted_current_page' do
-      expect(book.adjusted_current_page).to eq 150 #50% of 300 is 150
+      expect(book.adjusted_current_page).to eq 150 # 50% of 300 is 150
     end
   end
 
   context 'that is finished' do
-    subject(:book) {create(:book, started_at: 50.days.ago+1.hour, current_page: 300, pages: 300, finished: true)}
-    let!(:last_bookmark) {create(:bookmark, book: book, page: 300, created_at: 40.days.ago)}
+    subject(:book) { create(:book, started_at: 50.days.ago + 1.hour, current_page: 300, pages: 300, finished: true) }
+    let!(:last_bookmark) { create(:bookmark, book: book, page: 300, created_at: 40.days.ago) }
 
     it 'should pass' do
       expect(book.pace).to eq 30
@@ -83,9 +82,9 @@ describe Book do
 
   describe '#bookmark_graph_data' do
     context 'with multiple bookmarks on the same day' do
-      subject(:book) {create(:book)}
-      let!(:earlier_bookmark) {create(:bookmark, book: book, page: 5, created_at: 4.hours.ago)}
-      let!(:later_bookmark) {create(:bookmark, book: book, page: 15, created_at: 2.hours.ago)}
+      subject(:book) { create(:book) }
+      let!(:earlier_bookmark) { create(:bookmark, book: book, page: 5, created_at: 4.hours.ago) }
+      let!(:later_bookmark) { create(:bookmark, book: book, page: 15, created_at: 2.hours.ago) }
       it 'only returns the last bookmark' do
         expect(subject.bookmark_graph_data.count).to eq 1
         expect(subject.bookmark_graph_data.first[1]).to eq 15

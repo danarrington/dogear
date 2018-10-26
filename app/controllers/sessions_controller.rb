@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
-
   def new
-
   end
 
   def create
@@ -21,5 +19,4 @@ class SessionsController < ApplicationController
     flash[:notice] = "Signed out successfully."
     redirect_to action: :new
   end
-
 end

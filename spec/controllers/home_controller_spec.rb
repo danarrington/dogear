@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe HomeController do
-
   describe "GET 'index'" do
     context 'with logged in user' do
       before :each do
@@ -27,5 +26,4 @@ describe HomeController do
       end
     end
   end
-
 end

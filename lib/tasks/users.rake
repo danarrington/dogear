@@ -8,5 +8,4 @@ namespace :users do
       u.save
     end
   end
-
 end

@@ -5,7 +5,7 @@ feature 'Reading Books' do
     @user = create(:user)
     sign_in @user
 
-    FactoryGirl.create(:book, title: 'Redshirts', current_page: 2, user:@user, updated_at: 1.day.ago)
+    FactoryGirl.create(:book, title: 'Redshirts', current_page: 2, user: @user, updated_at: 1.day.ago)
   end
   scenario 'Read a Book' do
     visit '/books/'
@@ -37,13 +37,11 @@ feature 'Reading Books' do
     fill_in 'book_current_page', with: 53
     click_button 'Submit'
 
-    click_button 'Finish' #whoops, didn't mean to finish it
+    click_button 'Finish' # whoops, didn't mean to finish it
 
     click_button 'Re-Open'
 
     expect(page).to have_content('days of reading')
     expect(page).to have_content('Submit')
-
   end
-
 end

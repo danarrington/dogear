@@ -15,8 +15,8 @@ class BooksController < ApplicationController
     @books = Book.where(user: current_user, finished: false).order(updated_at: :desc)
     @finished_books = Book.where(user: current_user, finished: true).order(updated_at: :desc)
     @stats = {
-        total_pages: Stats.total_pages(current_user),
-        finished_books: Stats.finished_books(current_user)
+      total_pages: Stats.total_pages(current_user),
+      finished_books: Stats.finished_books(current_user)
     }
   end
 
@@ -46,11 +46,12 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     @book.update_attributes(book_params)
-    @book.bookmarks.create(page: @book.current_page )
+    @book.bookmarks.create(page: @book.current_page)
     redirect_to @book
   end
 
   private
+
   def book_params
     params.require(:book).permit(:title, :pages, :current_page, :kindle, :finished)
   end
@@ -62,5 +63,4 @@ class BooksController < ApplicationController
   def authenticate
     redirect_to root_path unless current_user
   end
-
 end

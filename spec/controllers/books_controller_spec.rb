@@ -1,30 +1,29 @@
 require 'rails_helper'
 
 describe BooksController do
-
   describe 'POST #create' do
-    let!(:user) {set_user_token(create(:user))}
-    subject(:book) {Book.first}
+    let!(:user) { set_user_token(create(:user)) }
+    subject(:book) { Book.first }
     before :each do
       post :create, params: { book: attributes_for(:book) }
     end
 
-    its(:started_at) {should eq Date.today}
+    its(:started_at) { should eq Date.today }
 
-    its(:user) {should eq user}
+    its(:user) { should eq user }
 
-    its(:current_page) {should eq 0}
+    its(:current_page) { should eq 0 }
   end
 
   describe 'GET #show' do
-    let!(:user) {set_user_token(create(:user))}
+    let!(:user) { set_user_token(create(:user)) }
     before :each do
       @book = create(:book, finished: finished)
       get :show, params: { id: @book.id }
     end
 
     context 'with an open book' do
-      let(:finished) {false}
+      let(:finished) { false }
       it 'assigns the requested book to @book' do
         expect(assigns(:book)).to eq @book
       end
@@ -33,7 +32,7 @@ describe BooksController do
       end
     end
     context 'with a finished book' do
-      let!(:finished) {true}
+      let!(:finished) { true }
       it 'renders the show_finished template' do
         expect(response).to render_template :show_finished
       end
@@ -41,11 +40,11 @@ describe BooksController do
   end
 
   describe 'POST #update' do
-    let!(:user) {set_user_token(create(:user))}
+    let!(:user) { set_user_token(create(:user)) }
     let(:book) { create(:book) }
     context 'with a valid page number' do
       it 'saves a new bookmark to the database' do
-        expect{
+        expect {
           patch :update, params: {
             id: book.id,
             book: attributes_for(:book)
@@ -89,8 +88,8 @@ describe BooksController do
       end
       context 'with open and finished books' do
         before :each do
-          @open_book = create(:book, user:@user)
-          @closed_book = create(:book, user:@user, finished:true)
+          @open_book = create(:book, user: @user)
+          @closed_book = create(:book, user: @user, finished: true)
           get :index
         end
         it 'lists open books' do
