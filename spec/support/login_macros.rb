@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module LoginMacros
   def set_user_token(user)
     cookies[:auth_token] = user.auth_token

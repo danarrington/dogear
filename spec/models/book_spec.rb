@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Book do
@@ -13,15 +15,20 @@ describe Book do
   end
 
   it 'is invalid without pages' do
-    expect(build(:book, pages: nil, title: 'book title')).to have(1).errors_on(:pages)
+    book = build(:book, pages: nil, title: 'book title')
+    expect(book).to have(1).errors_on(:pages)
   end
 
   it 'is invalid without current_page' do
-    expect(build(:book, current_page: nil)).to have(1).errors_on(:current_page)
+    book = build(:book, current_page: nil)
+    expect(book).to have(1).errors_on(:current_page)
   end
 
   context 'with some reading data' do
-    subject(:book) {create(:book, started_at: 1.hour.ago, current_page: 10, pages: 100, kindle:false)}
+    subject(:book)  do
+      create(:book, started_at: 1.hour.ago, current_page: 10, pages: 100,
+                    kindle: false)
+    end
     it 'calculates days discreetly' do
       expect(book.pace).to eq 10
     end
@@ -43,21 +50,26 @@ describe Book do
     it 'calculates finish date days' do
       expect(book.finish_date_days).to eq 9
     end
-
   end
 
   context 'that is not a kindle book' do
-    subject(:book)  {create(:book, started_at: 5.days.ago+1.hour, current_page: 100, pages: 300, kindle: false)}
+    subject(:book) do
+      create(:book, started_at: 5.days.ago + 1.hour, current_page: 100,
+                    pages: 300, kindle: false)
+    end
 
     its(:pace) { should eq 20 }
 
-    its(:finish_date) {should eq 10.days.from_now.to_date}
+    its(:finish_date) { should eq 10.days.from_now.to_date }
 
-    its(:adjusted_current_page) {should eq 100}
+    its(:adjusted_current_page) { should eq 100 }
   end
 
   context 'that is a kindle book' do
-    subject(:book) {create(:book, started_at: 5.days.ago+1.hour, current_page: 50, pages: 300, kindle: true)}
+    subject(:book) do
+      create(:book, started_at: 5.days.ago + 1.hour, current_page: 50,
+                    pages: 300, kindle: true)
+    end
 
     it 'calculates the pace correctly' do
       expect(book.pace).to eq 30
@@ -68,13 +80,18 @@ describe Book do
     end
 
     it 'returns page not percent as adjusted_current_page' do
-      expect(book.adjusted_current_page).to eq 150 #50% of 300 is 150
+      expect(book.adjusted_current_page).to eq 150 # 50% of 300 is 150
     end
   end
 
   context 'that is finished' do
-    subject(:book) {create(:book, started_at: 50.days.ago+1.hour, current_page: 300, pages: 300, finished: true)}
-    let!(:last_bookmark) {create(:bookmark, book: book, page: 300, created_at: 40.days.ago)}
+    subject(:book) do
+      create(:book, started_at: 50.days.ago + 1.hour, current_page: 300,
+                    pages: 300, finished: true)
+    end
+    let!(:last_bookmark) do
+      create(:bookmark, book: book, page: 300, created_at: 40.days.ago)
+    end
 
     it 'should pass' do
       expect(book.pace).to eq 30
@@ -83,9 +100,13 @@ describe Book do
 
   describe '#bookmark_graph_data' do
     context 'with multiple bookmarks on the same day' do
-      subject(:book) {create(:book)}
-      let!(:earlier_bookmark) {create(:bookmark, book: book, page: 5, created_at: 4.hours.ago)}
-      let!(:later_bookmark) {create(:bookmark, book: book, page: 15, created_at: 2.hours.ago)}
+      subject(:book) { create(:book) }
+      let!(:earlier_bookmark) do
+        create(:bookmark, book: book, page: 5, created_at: 4.hours.ago)
+      end
+      let!(:later_bookmark) do
+        create(:bookmark, book: book, page: 15, created_at: 2.hours.ago)
+      end
       it 'only returns the last bookmark' do
         expect(subject.bookmark_graph_data.count).to eq 1
         expect(subject.bookmark_graph_data.first[1]).to eq 15

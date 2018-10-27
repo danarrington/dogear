@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def new
     @user = User.new
@@ -16,11 +18,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   private
-    def user_params
-      params.require(:user).permit(:email, :name, :password, :password_confirmation)
-    end
+
+  def user_params
+    params.require(:user).permit(:email, :name, :password, :password_confirmation)
+  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Listing Books' do
@@ -7,9 +9,8 @@ feature 'Listing Books' do
     sign_in @user
   end
   scenario 'List all books' do
-
-    create(:book, title: 'Redshirts', user:@user)
-    book2 = create(:book, title: 'Just a Geek', user:@user, finished:true)
+    create(:book, title: 'Redshirts', user: @user)
+    book2 = create(:book, title: 'Just a Geek', user: @user, finished: true)
     create(:bookmark, book: book2)
 
     visit '/books'
@@ -24,7 +25,7 @@ feature 'Listing Books' do
 
   scenario 'View a book' do
     create(:book, title: 'Redshirts',
-                       pages: 314, current_page: 23, user:@user)
+                  pages: 314, current_page: 23, user: @user)
 
     visit '/books'
 
@@ -37,7 +38,7 @@ feature 'Listing Books' do
 
   scenario 'View a kindle book' do
     create(:book, title: 'Redshirts',
-                       pages: 300, current_page: 25, user:@user, kindle:true)
+                  pages: 300, current_page: 25, user: @user, kindle: true)
 
     visit '/books'
     click_link 'Redshirts'
@@ -47,15 +48,15 @@ feature 'Listing Books' do
   end
 
   scenario 'Visit Root Page' do
-    create(:book, title: 'Redshirts', pages: 314, current_page: 23, updated_at: Date.today, user: @user)
-    create(:book, title: 'Old Mans War', pages: 310, current_page: 0, updated_at: Date.yesterday, user: @user)
+    create(:book, title: 'Redshirts', pages: 314, current_page: 23,
+                  updated_at: Date.today, user: @user)
+    create(:book, title: 'Old Mans War', pages: 310, current_page: 0,
+                  updated_at: Date.yesterday, user: @user)
 
     visit '/'
 
-    #Should redirect to most recently updated book
+    # Should redirect to most recently updated book
     expect(page).to have_content('Redshirts')
     expect(page).to have_content('23')
   end
-
-
 end

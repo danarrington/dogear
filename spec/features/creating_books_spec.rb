@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 feature 'Creating Books' do
   scenario 'Create a Book' do
-
     user = create(:user)
     sign_in user
 

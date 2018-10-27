@@ -1,7 +1,8 @@
-require 'spec_helper'
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 describe HomeController do
-
   describe "GET 'index'" do
     context 'with logged in user' do
       before :each do
@@ -9,7 +10,7 @@ describe HomeController do
       end
       context 'with started book' do
         it 'redirects to most recently read book' do
-          old_book = create(:book, user: @user, updated_at: 5.days.ago)
+          create(:book, user: @user, updated_at: 5.days.ago)
           new_book = create(:book, user: @user, updated_at: 1.days.ago)
           get :index
 
@@ -27,5 +28,4 @@ describe HomeController do
       end
     end
   end
-
 end

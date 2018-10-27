@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
-ruby '2.3.1'
-gem 'rails', '5.0.0'
+ruby '2.5.3'
+gem 'rails', '5.2.1'
 
 gem 'bcrypt', '~> 3.1' # To use ActiveModel has_secure_password
 gem 'bootstrap-sass'
@@ -13,7 +15,7 @@ gem 'sentry-raven', '~> 2.4'
 gem 'slim-rails'
 
 group :assets do
-  gem 'coffee-script' #hack to get assets on dokku working
+  gem 'coffee-script' # HACK: to get assets on dokku working
   gem 'sass-rails'
   gem 'uglifier'
 end
@@ -34,6 +36,8 @@ group :test do
   gem 'rspec-collection_matchers'
   gem 'rspec-its'
   gem 'selenium-webdriver'
+  gem 'spring', '~> 2.0'
+  gem 'spring-commands-rspec', '~> 1.0'
   gem 'sqlite3'
   gem 'timecop'
 end

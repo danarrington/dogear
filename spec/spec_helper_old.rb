@@ -1,18 +1,18 @@
-require File.expand_path("../../config/environment", __FILE__)
+# frozen_string_literal: true
+
+require File.expand_path('../config/environment', __dir__)
 require 'rubygems'
 require 'rspec/rails'
 
-
-ENV["RAILS_ENV"] ||= 'test'
+ENV['RAILS_ENV'] ||= 'test'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
-
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  #config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  # config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -28,9 +28,9 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  config.order = "random"
+  config.order = 'random'
 
   # Include Factory Girl syntax to simplify calls to factories
-  #config.include FactoryGirl::Syntax::Methods
+  # config.include FactoryGirl::Syntax::Methods
   config.include LoginMacros
 end

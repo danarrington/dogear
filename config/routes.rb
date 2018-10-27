@@ -1,9 +1,9 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
-  root :to => 'home#index'
+Rails.application.routes.draw do
+  root to: 'home#index'
   resources :books
   resources :users
-  resources :user, only: [ :new, :create, :show]
-  resource :session, only: [:new, :create, :destroy]
-
+  resources :user, only: %i[new create show]
+  resource :session, only: %i[new create destroy]
 end

@@ -1,5 +1,6 @@
-class Book < ApplicationRecord
+# frozen_string_literal: true
 
+class Book < ApplicationRecord
   belongs_to :user
   has_many :bookmarks
 
@@ -10,20 +11,20 @@ class Book < ApplicationRecord
 
   def pace
     last_day = finished? ? bookmarks.last.created_at : Time.now.utc
-    days = ((last_day - started_at)/1.day).ceil.to_f
-    (adjusted_current_page/days).round(1)
+    days = ((last_day - started_at) / 1.day).ceil.to_f
+    (adjusted_current_page / days).round(1)
   end
 
   def finish_date
-    return nil if current_page == 0
+    return nil if current_page.zero?
 
     pages_left = pages - adjusted_current_page
-    days_left = pages_left.to_f/pace
+    days_left = pages_left.to_f / pace
     Date.current.in_time_zone + days_left.days
   end
 
   def days_reading
-    (Time.now.utc.to_date - (started_at.to_date-1.day)).to_i
+    (Time.now.utc.to_date - (started_at.to_date - 1.day)).to_i
   end
 
   def finish_date_days
@@ -34,7 +35,7 @@ class Book < ApplicationRecord
     if kindle? && finished?
       pages
     else
-      kindle? ? (current_page.to_f/100 * pages).to_i : current_page
+      kindle? ? (current_page.to_f / 100 * pages).to_i : current_page
     end
   end
 

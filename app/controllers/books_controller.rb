@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :read, :finish, :reopen]
+  before_action :set_book, only: %i[show read finish reopen]
   before_action :authenticate
 
   def entry
@@ -12,11 +14,13 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.where(user: current_user, finished: false).order(updated_at: :desc)
-    @finished_books = Book.where(user: current_user, finished: true).order(updated_at: :desc)
+    @books = Book.where(user: current_user, finished: false)
+                 .order(updated_at: :desc)
+    @finished_books = Book.where(user: current_user, finished: true)
+                          .order(updated_at: :desc)
     @stats = {
-        total_pages: Stats.total_pages(current_user),
-        finished_books: Stats.finished_books(current_user)
+      total_pages: Stats.total_pages(current_user),
+      finished_books: Stats.finished_books(current_user)
     }
   end
 
@@ -30,12 +34,10 @@ class BooksController < ApplicationController
     @book.current_page = 0
     @book.user = current_user
 
-    if @book.save
-      flash[:notice] = 'Book has been added'
-      redirect_to @book
-    else
+    return unless @book.save
 
-    end
+    flash[:notice] = 'Book has been added'
+    redirect_to @book
   end
 
   def show
@@ -46,11 +48,12 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     @book.update_attributes(book_params)
-    @book.bookmarks.create(page: @book.current_page )
+    @book.bookmarks.create(page: @book.current_page)
     redirect_to @book
   end
 
   private
+
   def book_params
     params.require(:book).permit(:title, :pages, :current_page, :kindle, :finished)
   end
@@ -62,5 +65,4 @@ class BooksController < ApplicationController
   def authenticate
     redirect_to root_path unless current_user
   end
-
 end

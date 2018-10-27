@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_action :set_raven_context #for sentry logging
+  before_action :set_raven_context # for sentry logging
 
   def current_user
     @current_user || User.find_by_auth_token(cookies[:auth_token]) if cookies[:auth_token]
