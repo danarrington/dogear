@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    user = User.find_by_email(params[:signin][:email].strip.downcase)
+    user = find_user
 
     if user&.authenticate(params[:signin][:password])
       sign_in_user(user, params[:signin][:remember_me])
@@ -19,5 +19,11 @@ class SessionsController < ApplicationController
     sign_out_user
     flash[:notice] = 'Signed out successfully.'
     redirect_to action: :new
+  end
+
+  private
+
+  def find_user
+    User.find_by_email(params[:signin][:email].strip.downcase)
   end
 end

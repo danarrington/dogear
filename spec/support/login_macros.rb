@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 module LoginMacros
+  # rubocop:disable Naming/AccessorMethodName
   def set_user_token(user)
     cookies[:auth_token] = user.auth_token
     user
   end
+  # rubocop:enable Naming/AccessorMethodName
 
   def sign_in(user)
     visit root_path
