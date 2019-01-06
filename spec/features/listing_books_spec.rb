@@ -10,8 +10,12 @@ feature 'Listing Books' do
   end
   scenario 'List all books' do
     create(:book, title: 'Redshirts', user: @user)
-    book2 = create(:book, title: 'Just a Geek', user: @user, finished: true)
+    book2 = create(:book, title: 'Just a Geek', user: @user, finished: true,
+                          updated_at: Date.new(2018))
+    book3 = create(:book, title: 'Cryoburn', user: @user, finished: true,
+                          updated_at: Date.new(2018))
     create(:bookmark, book: book2)
+    create(:bookmark, book: book3)
 
     visit '/books'
 
@@ -19,6 +23,7 @@ feature 'Listing Books' do
       expect(page).to have_content('Redshirts')
     end
     within('#finished-books') do
+      expect(page).to have_content('2018 (2)')
       expect(page).to have_content('Just a Geek')
     end
   end

@@ -113,4 +113,12 @@ describe Book do
       end
     end
   end
+
+  describe '::grouped_by_year_for' do
+    it 'groups books by year' do
+      fail 'do this next'
+
+    end
+
+  end
 end
