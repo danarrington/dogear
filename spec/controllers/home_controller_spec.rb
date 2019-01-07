@@ -18,7 +18,10 @@ describe HomeController do
         end
       end
       context 'without a started book' do
-        it 'does something?'
+        it 'renders the book listing page' do
+          get :index
+          expect(response).to redirect_to books_path
+        end
       end
     end
     context 'not logged in' do
