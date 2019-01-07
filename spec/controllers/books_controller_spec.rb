@@ -63,7 +63,6 @@ describe BooksController do
     end
     context 'without a valid page number' do
       it 'does not save a new bookmark to the database' do
-        pending 'not sure how to process validation yet'
         expect do
           patch :update, params: {
             id: book.id,

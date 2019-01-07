@@ -6,7 +6,7 @@ class Book < ApplicationRecord
 
   validates :title, presence: true
   validates :pages, presence: true
-  validates :current_page, presence: true
+  validates :current_page, presence: true, numericality: { only_integer: true }
   validates :user, presence: true
 
   def pace

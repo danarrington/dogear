@@ -46,7 +46,11 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    @book.update_attributes(book_params)
+    unless @book.update(book_params)
+      # TODO: Add validation messaging
+      return
+    end
+
     @book.bookmarks.create(page: @book.current_page)
     redirect_to @book
   end

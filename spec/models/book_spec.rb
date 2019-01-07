@@ -19,9 +19,14 @@ describe Book do
     expect(book).to have(1).errors_on(:pages)
   end
 
+  it 'is invalid without a numerical current_page' do
+    book = build(:book, current_page: 'words')
+    expect(book).to have(1).errors_on(:current_page)
+  end
+
   it 'is invalid without current_page' do
     book = build(:book, current_page: nil)
-    expect(book).to have(1).errors_on(:current_page)
+    expect(book).to have(2).errors_on(:current_page)
   end
 
   context 'with some reading data' do
