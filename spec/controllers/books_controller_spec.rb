@@ -98,7 +98,8 @@ describe BooksController do
           expect(assigns(:books)).to match_array([@open_book])
         end
         it 'lists finished books' do
-          expect(assigns(:finished_books)).to include(2018 => [@closed_book])
+          year = Time.now.year
+          expect(assigns(:finished_books)).to include(year => [@closed_book])
         end
       end
     end
