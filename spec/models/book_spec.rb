@@ -113,4 +113,20 @@ describe Book do
       end
     end
   end
+
+  describe '::grouped_by_year_for' do
+    let(:user) { create(:user) }
+    let(:date_2017) { Time.new(2017, 1, 1) }
+    let(:date_2018) { Time.new(2018, 1, 1) }
+    before do
+      create(:book, user: user, finished: true, updated_at: date_2017)
+      create(:book, user: user, finished: true, updated_at: date_2017)
+      create(:book, user: user, finished: true, updated_at: date_2018)
+    end
+    subject { Book.grouped_by_year_for(user) }
+    it 'groups books by year' do
+      expect(subject[2017].count).to eq 2
+      expect(subject[2018].count).to eq 1
+    end
+  end
 end

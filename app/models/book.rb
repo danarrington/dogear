@@ -50,4 +50,9 @@ class Book < ApplicationRecord
   def bookmark_graph_data
     bookmarks.group_by_day(:created_at, series: false).maximum(:page)
   end
+
+  def self.grouped_by_year_for(user)
+    where(user: user, finished: true).order(updated_at: :desc)
+                                     .group_by { |b| b.updated_at.year }
+  end
 end

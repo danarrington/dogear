@@ -4,8 +4,9 @@ class User < ApplicationRecord
   has_secure_password
   before_create { generate_token }
   def generate_token
-    begin
+    loop do
       self.auth_token = SecureRandom.urlsafe_base64
-    end while User.exists?(auth_token: auth_token)
+      break unless User.exists?(auth_token: auth_token)
+    end
   end
 end

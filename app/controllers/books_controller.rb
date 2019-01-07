@@ -16,8 +16,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.where(user: current_user, finished: false)
                  .order(updated_at: :desc)
-    @finished_books = Book.where(user: current_user, finished: true)
-                          .order(updated_at: :desc)
+    @finished_books = Book.grouped_by_year_for(current_user)
     @stats = {
       total_pages: Stats.total_pages(current_user),
       finished_books: Stats.finished_books(current_user)
